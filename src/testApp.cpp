@@ -193,12 +193,12 @@ void testApp::update(){
 			resetting  = 1;
 		}*/
 		
-		if(unlockMotors && !byteone[7]){
+		/*if(unlockMotors && !byteone[7]){
 			byteone[7] = true;
 		} else if(!unlockMotors && byteone[7]){
 			byteone[7] = (false);
 		}
-		
+		*/
 		
 		industrialRobot->thread.serial->unlock();
 	}	
@@ -239,13 +239,74 @@ void testApp::draw(){
         ofRect(10+i*40, ofGetHeight()-(10+1*40), 30, 30);
     }
     for(int i=0;i<5;i++){
-        ofDrawBitmapString(motorStatusLabel[i], 10+100*i, ofGetHeight()-(10+4*40));
+        ofDrawBitmapString(motorStatusLabel[i], 10+200*i, ofGetHeight()-(10+4*40));
     }
             ofDrawBitmapString(panicStatus, 10, ofGetHeight()-(10+5*40));
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    if(key == 'a'){
+        resetting = 1;
+    }
+    
+    if(key == '1'){
+        byteone[0] = !byteone[0];
+    }
+    if(key == '2'){
+        byteone[1] = !byteone[1];
+    }
+
+    if(key == '3'){
+        byteone[2] = !byteone[2];
+    }
+
+    if(key == '4'){
+        byteone[3] = !byteone[3];
+    }
+
+    if(key == '5'){
+        byteone[4] = !byteone[4];
+    }
+    if(key == '6'){
+        byteone[5] = !byteone[5];
+    }
+    if(key == '7'){
+        byteone[6] = !byteone[6];
+    }
+
+    if(key == '8'){
+        byteone[7] = !byteone[7];
+    }
+    
+    if(key == 'q'){
+        bytetwo[0] = !bytetwo[0];
+    }
+    if(key == 'w'){
+        bytetwo[1] = !bytetwo[1];
+    }
+    
+    if(key == 'e'){
+        bytetwo[2] = !bytetwo[2];
+    }
+    
+    if(key == 'r'){
+        bytetwo[3] = !bytetwo[3];
+    }
+    
+    if(key == 't'){
+        bytetwo[4] = !bytetwo[4];
+    }
+    if(key == 'y'){
+        bytetwo[5] = !bytetwo[5];
+    }
+    if(key == 'u'){
+        bytetwo[6] = !bytetwo[6];
+    }
+    
+    if(key == 'i'){
+        bytetwo[7] = !bytetwo[7];
+    }
 
 }
 
