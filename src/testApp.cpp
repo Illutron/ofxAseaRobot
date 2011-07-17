@@ -3,11 +3,14 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     industrialRobot = new ofxIndustrialRobot(this);
+    industrialRobot->thread.controller->setInput(ofxIndustrialRobotController::Gravity);
     industrialRobot->gotoStartPosition();    
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
+    industrialRobot->setGravityTarget(ofxVec3f(1487.6, 666.2, 1038.6), ofxVec3f(0.77, -0.44, 0.62));
+    
     
 	if(industrialRobot->getEmergencyStop()){
         //unlockMotors->setChecked(false);	

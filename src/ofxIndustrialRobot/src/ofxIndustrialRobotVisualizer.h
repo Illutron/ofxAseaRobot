@@ -16,8 +16,8 @@
 class View : public ofxMSAInteractiveObject {
 public:
 	View(){
-		enableMouseEvents();
-		enableKeyEvents();	
+		//enableMouseEvents();
+		//enableKeyEvents();	
 		click = false;
 		release = false;
 	}
