@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDA509BE13D31B0600CCEFD7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDA509B513D31B0600CCEFD7 /* main.cpp */; };
+		DDA509BF13D31B0600CCEFD7 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDA509B713D31B0600CCEFD7 /* testApp.cpp */; };
+		DDA509C013D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */; };
 		DDAF60A613D3014C004991CF /* ofxIndustrialRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608813D3014C004991CF /* ofxIndustrialRobot.cpp */; };
 		DDAF60A713D3014C004991CF /* ofxIndustrialRobotArmData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608A13D3014C004991CF /* ofxIndustrialRobotArmData.cpp */; };
 		DDAF60A813D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608C13D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp */; };
@@ -34,7 +37,6 @@
 		DDAF611913D30256004991CF /* ofx3DGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF610F13D30256004991CF /* ofx3DGraphics.cpp */; };
 		DDAF611A13D30256004991CF /* ofxCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF611213D30256004991CF /* ofxCamera.cpp */; };
 		DDAF611B13D30256004991CF /* ofxLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF611513D30256004991CF /* ofxLight.cpp */; };
-		DDAF612B13D3026D004991CF /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF612713D3026D004991CF /* ofxMSAInteractiveObject.cpp */; };
 		DDAF613813D30283004991CF /* model3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613013D30283004991CF /* model3DS.cpp */; };
 		DDAF613913D30283004991CF /* texture3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613213D30283004991CF /* texture3DS.cpp */; };
 		DDAF613A13D30283004991CF /* ofx3dModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613613D30283004991CF /* ofx3dModelLoader.cpp */; };
@@ -109,6 +111,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DDA509B013D31B0600CCEFD7 /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
+		DDA509B513D31B0600CCEFD7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DDA509B613D31B0600CCEFD7 /* MyTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTestObject.h; sourceTree = "<group>"; };
+		DDA509B713D31B0600CCEFD7 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
+		DDA509B813D31B0600CCEFD7 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
+		DDA509B913D31B0600CCEFD7 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		DDA509BA13D31B0600CCEFD7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSAInteractiveObject.cpp; sourceTree = "<group>"; };
+		DDA509BD13D31B0600CCEFD7 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAInteractiveObject.h; sourceTree = "<group>"; };
 		DDAF608813D3014C004991CF /* ofxIndustrialRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobot.cpp; sourceTree = "<group>"; };
 		DDAF608913D3014C004991CF /* ofxIndustrialRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobot.h; sourceTree = "<group>"; };
 		DDAF608A13D3014C004991CF /* ofxIndustrialRobotArmData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotArmData.cpp; sourceTree = "<group>"; };
@@ -182,11 +193,6 @@
 		DDAF611413D30256004991CF /* ofxEasyCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasyCam.h; sourceTree = "<group>"; };
 		DDAF611513D30256004991CF /* ofxLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLight.cpp; sourceTree = "<group>"; };
 		DDAF611613D30256004991CF /* ofxLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLight.h; sourceTree = "<group>"; };
-		DDAF611D13D3026D004991CF /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
-		DDAF612413D3026D004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		DDAF612513D3026D004991CF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		DDAF612713D3026D004991CF /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSAInteractiveObject.cpp; sourceTree = "<group>"; };
-		DDAF612813D3026D004991CF /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAInteractiveObject.h; sourceTree = "<group>"; };
 		DDAF612D13D30283004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		DDAF613013D30283004991CF /* model3DS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = model3DS.cpp; sourceTree = "<group>"; };
 		DDAF613113D30283004991CF /* model3DS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model3DS.h; sourceTree = "<group>"; };
@@ -275,13 +281,70 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				DDA509AF13D31B0600CCEFD7 /* ofxMSAInteractiveObject */,
 				DDAF612C13D30283004991CF /* ofx3DModelLoader */,
-				DDAF611C13D3026D004991CF /* ofxMSAInteractiveObject */,
 				DDAF60FA13D30214004991CF /* ofxXmlSettings */,
 				DDAF60CF13D301D6004991CF /* ofxVectorMath */,
 				DDAF60C713D301BF004991CF /* ofxThread */,
 			);
 			name = addons;
+			sourceTree = "<group>";
+		};
+		DDA509AF13D31B0600CCEFD7 /* ofxMSAInteractiveObject */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509B013D31B0600CCEFD7 /* changelog.txt */,
+				DDA509B113D31B0600CCEFD7 /* examples */,
+				DDA509B913D31B0600CCEFD7 /* install.xml */,
+				DDA509BA13D31B0600CCEFD7 /* LICENSE.txt */,
+				DDA509BB13D31B0600CCEFD7 /* src */,
+			);
+			name = ofxMSAInteractiveObject;
+			path = src/ofxMSAInteractiveObject;
+			sourceTree = "<group>";
+		};
+		DDA509B113D31B0600CCEFD7 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509B213D31B0600CCEFD7 /* openFrameworks */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+		DDA509B213D31B0600CCEFD7 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509B313D31B0600CCEFD7 /* ofxMSAInteractiveObject example */,
+			);
+			path = openFrameworks;
+			sourceTree = "<group>";
+		};
+		DDA509B313D31B0600CCEFD7 /* ofxMSAInteractiveObject example */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509B413D31B0600CCEFD7 /* src */,
+			);
+			path = "ofxMSAInteractiveObject example";
+			sourceTree = "<group>";
+		};
+		DDA509B413D31B0600CCEFD7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509B513D31B0600CCEFD7 /* main.cpp */,
+				DDA509B613D31B0600CCEFD7 /* MyTestObject.h */,
+				DDA509B713D31B0600CCEFD7 /* testApp.cpp */,
+				DDA509B813D31B0600CCEFD7 /* testApp.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DDA509BB13D31B0600CCEFD7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */,
+				DDA509BD13D31B0600CCEFD7 /* ofxMSAInteractiveObject.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		DDAF608613D3014C004991CF /* ofxIndustrialRobot */ = {
@@ -334,8 +397,8 @@
 				DDAF60CB13D301BF004991CF /* src */,
 			);
 			name = ofxThread;
-			path = Development/Library/of_preRelease_v0062_osxSL_FAT/addons/ofxThread;
-			sourceTree = SYSTEM_DEVELOPER_DIR;
+			path = ../../../addons/ofxThread;
+			sourceTree = SOURCE_ROOT;
 		};
 		DDAF60CB13D301BF004991CF /* src */ = {
 			isa = PBXGroup;
@@ -353,8 +416,8 @@
 				DDAF60D113D301D6004991CF /* src */,
 			);
 			name = ofxVectorMath;
-			path = Development/Library/of_preRelease_v0062_osxSL_FAT/addons/ofxVectorMath;
-			sourceTree = SYSTEM_DEVELOPER_DIR;
+			path = ../../../addons/ofxVectorMath;
+			sourceTree = SOURCE_ROOT;
 		};
 		DDAF60D113D301D6004991CF /* src */ = {
 			isa = PBXGroup;
@@ -411,8 +474,8 @@
 				DDAF610113D30214004991CF /* src */,
 			);
 			name = ofxXmlSettings;
-			path = Development/Library/of_preRelease_v0062_osxSL_FAT/addons/ofxXmlSettings;
-			sourceTree = SYSTEM_DEVELOPER_DIR;
+			path = ../../../addons/ofxXmlSettings;
+			sourceTree = SOURCE_ROOT;
 		};
 		DDAF60FC13D30214004991CF /* libs */ = {
 			isa = PBXGroup;
@@ -458,27 +521,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		DDAF611C13D3026D004991CF /* ofxMSAInteractiveObject */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF611D13D3026D004991CF /* changelog.txt */,
-				DDAF612413D3026D004991CF /* install.xml */,
-				DDAF612513D3026D004991CF /* LICENSE.txt */,
-				DDAF612613D3026D004991CF /* src */,
-			);
-			name = ofxMSAInteractiveObject;
-			path = Development/Library/of_preRelease_v0.06_xcode_FAT/memoAddons/ofxMSAInteractiveObject;
-			sourceTree = SYSTEM_DEVELOPER_DIR;
-		};
-		DDAF612613D3026D004991CF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF612713D3026D004991CF /* ofxMSAInteractiveObject.cpp */,
-				DDAF612813D3026D004991CF /* ofxMSAInteractiveObject.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		DDAF612C13D30283004991CF /* ofx3DModelLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,8 +528,8 @@
 				DDAF612E13D30283004991CF /* src */,
 			);
 			name = ofx3DModelLoader;
-			path = Development/Library/of_preRelease_v0062_osxSL_FAT/addons/ofx3DModelLoader;
-			sourceTree = SYSTEM_DEVELOPER_DIR;
+			path = ../../../addons/ofx3DModelLoader;
+			sourceTree = SOURCE_ROOT;
 		};
 		DDAF612E13D30283004991CF /* src */ = {
 			isa = PBXGroup;
@@ -908,10 +950,12 @@
 				DDAF611913D30256004991CF /* ofx3DGraphics.cpp in Sources */,
 				DDAF611A13D30256004991CF /* ofxCamera.cpp in Sources */,
 				DDAF611B13D30256004991CF /* ofxLight.cpp in Sources */,
-				DDAF612B13D3026D004991CF /* ofxMSAInteractiveObject.cpp in Sources */,
 				DDAF613813D30283004991CF /* model3DS.cpp in Sources */,
 				DDAF613913D30283004991CF /* texture3DS.cpp in Sources */,
 				DDAF613A13D30283004991CF /* ofx3dModelLoader.cpp in Sources */,
+				DDA509BE13D31B0600CCEFD7 /* main.cpp in Sources */,
+				DDA509BF13D31B0600CCEFD7 /* testApp.cpp in Sources */,
+				DDA509C013D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
