@@ -217,6 +217,7 @@ void testApp::update(){
 void testApp::draw(){
     ofBackground(0, 0, 0);
    industrialRobot->visualizer->draw3d(0, 0, ofGetWidth()/2, ofGetHeight()/2);
+   industrialRobot->visualizer->drawside( ofGetWidth()/2, 0, ofGetWidth()/2, ofGetHeight()/2);
     
     ofSetColor(255, 255, 255,255);
     for(int i=0;i<8;i++){
