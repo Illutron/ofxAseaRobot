@@ -7,34 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DDA509C013D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */; };
-		DDAF60A613D3014C004991CF /* ofxIndustrialRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608813D3014C004991CF /* ofxIndustrialRobot.cpp */; };
-		DDAF60A713D3014C004991CF /* ofxIndustrialRobotArmData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608A13D3014C004991CF /* ofxIndustrialRobotArmData.cpp */; };
-		DDAF60A813D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608C13D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp */; };
-		DDAF60A913D3014C004991CF /* ofxIndustrialRobotController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF608E13D3014C004991CF /* ofxIndustrialRobotController.cpp */; };
-		DDAF60AB13D3014C004991CF /* ofxIndustrialRobotCoreData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609213D3014C004991CF /* ofxIndustrialRobotCoreData.cpp */; };
-		DDAF60AC13D3014C004991CF /* ofxIndustrialRobotMotorConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609613D3014C004991CF /* ofxIndustrialRobotMotorConverter.cpp */; };
-		DDAF60AD13D3014C004991CF /* ofxIndustrialRobotPlotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609813D3014C004991CF /* ofxIndustrialRobotPlotter.cpp */; };
-		DDAF60AE13D3014C004991CF /* ofxIndustrialRobotPositionCue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609A13D3014C004991CF /* ofxIndustrialRobotPositionCue.cpp */; };
-		DDAF60AF13D3014C004991CF /* ofxIndustrialRobotSerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609C13D3014C004991CF /* ofxIndustrialRobotSerial.cpp */; };
-		DDAF60B013D3014C004991CF /* ofxIndustrialRobotThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF609E13D3014C004991CF /* ofxIndustrialRobotThread.cpp */; };
-		DDAF60B113D3014C004991CF /* ofxIndustrialRobotTimeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60A013D3014C004991CF /* ofxIndustrialRobotTimeline.cpp */; };
-		DDAF60B213D3014C004991CF /* ofxIndustrialRobotTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60A213D3014C004991CF /* ofxIndustrialRobotTool.cpp */; };
-		DDAF60B313D3014C004991CF /* ofxIndustrialRobotVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60A413D3014C004991CF /* ofxIndustrialRobotVisualizer.cpp */; };
+		58B80DDB13D4760500A73F5D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80DD813D4760500A73F5D /* main.cpp */; };
+		58B80DDC13D4760500A73F5D /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80DD913D4760500A73F5D /* testApp.cpp */; };
+		58B80E5213D4761400A73F5D /* ofx3DGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E0813D4761400A73F5D /* ofx3DGraphics.cpp */; };
+		58B80E5313D4761400A73F5D /* ofxCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E0B13D4761400A73F5D /* ofxCamera.cpp */; };
+		58B80E5413D4761400A73F5D /* ofxLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E0E13D4761400A73F5D /* ofxLight.cpp */; };
+		58B80E5513D4761400A73F5D /* ofxIndustrialRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1013D4761400A73F5D /* ofxIndustrialRobot.cpp */; };
+		58B80E5613D4761400A73F5D /* ofxIndustrialRobotArmData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1213D4761400A73F5D /* ofxIndustrialRobotArmData.cpp */; };
+		58B80E5713D4761400A73F5D /* ofxIndustrialRobotArmHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1413D4761400A73F5D /* ofxIndustrialRobotArmHelper.cpp */; };
+		58B80E5813D4761400A73F5D /* ofxIndustrialRobotController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1613D4761400A73F5D /* ofxIndustrialRobotController.cpp */; };
+		58B80E5913D4761400A73F5D /* ofxIndustrialRobotCoreData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1813D4761400A73F5D /* ofxIndustrialRobotCoreData.cpp */; };
+		58B80E5A13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1C13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.cpp */; };
+		58B80E5B13D4761400A73F5D /* ofxIndustrialRobotPlotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E1E13D4761400A73F5D /* ofxIndustrialRobotPlotter.cpp */; };
+		58B80E5C13D4761400A73F5D /* ofxIndustrialRobotPositionCue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2013D4761400A73F5D /* ofxIndustrialRobotPositionCue.cpp */; };
+		58B80E5D13D4761400A73F5D /* ofxIndustrialRobotSerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2213D4761400A73F5D /* ofxIndustrialRobotSerial.cpp */; };
+		58B80E5E13D4761400A73F5D /* ofxIndustrialRobotThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2413D4761400A73F5D /* ofxIndustrialRobotThread.cpp */; };
+		58B80E5F13D4761400A73F5D /* ofxIndustrialRobotTimeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2613D4761400A73F5D /* ofxIndustrialRobotTimeline.cpp */; };
+		58B80E6013D4761400A73F5D /* ofxIndustrialRobotTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2813D4761400A73F5D /* ofxIndustrialRobotTool.cpp */; };
+		58B80E6113D4761400A73F5D /* ofxIndustrialRobotVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E2A13D4761400A73F5D /* ofxIndustrialRobotVisualizer.cpp */; };
+		58B80E6413D4761400A73F5D /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E3913D4761400A73F5D /* ofxMSAInteractiveObject.cpp */; };
+		58B80E6713D4761400A73F5D /* ofxMSASpline2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E4613D4761400A73F5D /* ofxMSASpline2D.cpp */; };
+		58B80E6813D4761400A73F5D /* ofxMSASpline3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E4813D4761400A73F5D /* ofxMSASpline3D.cpp */; };
+		58B80E6913D4761400A73F5D /* ofxMSASurface3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B80E4C13D4761400A73F5D /* ofxMSASurface3D.cpp */; };
 		DDAF60CE13D301BF004991CF /* ofxThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60CC13D301BF004991CF /* ofxThread.cpp */; };
 		DDAF60DF13D301D6004991CF /* ofxMatrix3x3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60D213D301D6004991CF /* ofxMatrix3x3.cpp */; };
 		DDAF60E013D301D6004991CF /* ofxMatrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60D413D301D6004991CF /* ofxMatrix4x4.cpp */; };
 		DDAF60E113D301D6004991CF /* ofxQuaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60D913D301D6004991CF /* ofxQuaternion.cpp */; };
-		DDAF60F713D301FE004991CF /* ofxMSASpline2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60ED13D301FE004991CF /* ofxMSASpline2D.cpp */; };
-		DDAF60F813D301FE004991CF /* ofxMSASpline3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60EF13D301FE004991CF /* ofxMSASpline3D.cpp */; };
-		DDAF60F913D301FE004991CF /* ofxMSASurface3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60F313D301FE004991CF /* ofxMSASurface3D.cpp */; };
 		DDAF610413D30214004991CF /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60FD13D30214004991CF /* tinyxml.cpp */; };
 		DDAF610513D30214004991CF /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF60FF13D30214004991CF /* tinyxmlerror.cpp */; };
 		DDAF610613D30214004991CF /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF610013D30214004991CF /* tinyxmlparser.cpp */; };
 		DDAF610713D30214004991CF /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF610213D30214004991CF /* ofxXmlSettings.cpp */; };
-		DDAF611913D30256004991CF /* ofx3DGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF610F13D30256004991CF /* ofx3DGraphics.cpp */; };
-		DDAF611A13D30256004991CF /* ofxCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF611213D30256004991CF /* ofxCamera.cpp */; };
-		DDAF611B13D30256004991CF /* ofxLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF611513D30256004991CF /* ofxLight.cpp */; };
 		DDAF613813D30283004991CF /* model3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613013D30283004991CF /* model3DS.cpp */; };
 		DDAF613913D30283004991CF /* texture3DS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613213D30283004991CF /* texture3DS.cpp */; };
 		DDAF613A13D30283004991CF /* ofx3dModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDAF613613D30283004991CF /* ofx3dModelLoader.cpp */; };
@@ -49,8 +51,6 @@
 		E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9770E8CC7DD009D7055 /* CoreServices.framework */; };
 		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
 		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
-		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
-		E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */; };
 		E4C2422B10CC554B004149E2 /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2421E10CC549C004149E2 /* openFrameworksDebug.a */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
@@ -109,39 +109,60 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DDA509B013D31B0600CCEFD7 /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
-		DDA509B913D31B0600CCEFD7 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		DDA509BA13D31B0600CCEFD7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSAInteractiveObject.cpp; sourceTree = "<group>"; };
-		DDA509BD13D31B0600CCEFD7 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAInteractiveObject.h; sourceTree = "<group>"; };
-		DDAF608813D3014C004991CF /* ofxIndustrialRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobot.cpp; sourceTree = "<group>"; };
-		DDAF608913D3014C004991CF /* ofxIndustrialRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobot.h; sourceTree = "<group>"; };
-		DDAF608A13D3014C004991CF /* ofxIndustrialRobotArmData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotArmData.cpp; sourceTree = "<group>"; };
-		DDAF608B13D3014C004991CF /* ofxIndustrialRobotArmData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotArmData.h; sourceTree = "<group>"; };
-		DDAF608C13D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotArmHelper.cpp; sourceTree = "<group>"; };
-		DDAF608D13D3014C004991CF /* ofxIndustrialRobotArmHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotArmHelper.h; sourceTree = "<group>"; };
-		DDAF608E13D3014C004991CF /* ofxIndustrialRobotController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotController.cpp; sourceTree = "<group>"; };
-		DDAF608F13D3014C004991CF /* ofxIndustrialRobotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotController.h; sourceTree = "<group>"; };
-		DDAF609213D3014C004991CF /* ofxIndustrialRobotCoreData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotCoreData.cpp; sourceTree = "<group>"; };
-		DDAF609313D3014C004991CF /* ofxIndustrialRobotCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotCoreData.h; sourceTree = "<group>"; };
-		DDAF609413D3014C004991CF /* ofxIndustrialRobotCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotCue.h; sourceTree = "<group>"; };
-		DDAF609513D3014C004991CF /* ofxIndustrialRobotDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotDefines.h; sourceTree = "<group>"; };
-		DDAF609613D3014C004991CF /* ofxIndustrialRobotMotorConverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotMotorConverter.cpp; sourceTree = "<group>"; };
-		DDAF609713D3014C004991CF /* ofxIndustrialRobotMotorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotMotorConverter.h; sourceTree = "<group>"; };
-		DDAF609813D3014C004991CF /* ofxIndustrialRobotPlotter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotPlotter.cpp; sourceTree = "<group>"; };
-		DDAF609913D3014C004991CF /* ofxIndustrialRobotPlotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotPlotter.h; sourceTree = "<group>"; };
-		DDAF609A13D3014C004991CF /* ofxIndustrialRobotPositionCue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotPositionCue.cpp; sourceTree = "<group>"; };
-		DDAF609B13D3014C004991CF /* ofxIndustrialRobotPositionCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotPositionCue.h; sourceTree = "<group>"; };
-		DDAF609C13D3014C004991CF /* ofxIndustrialRobotSerial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotSerial.cpp; sourceTree = "<group>"; };
-		DDAF609D13D3014C004991CF /* ofxIndustrialRobotSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotSerial.h; sourceTree = "<group>"; };
-		DDAF609E13D3014C004991CF /* ofxIndustrialRobotThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotThread.cpp; sourceTree = "<group>"; };
-		DDAF609F13D3014C004991CF /* ofxIndustrialRobotThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotThread.h; sourceTree = "<group>"; };
-		DDAF60A013D3014C004991CF /* ofxIndustrialRobotTimeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotTimeline.cpp; sourceTree = "<group>"; };
-		DDAF60A113D3014C004991CF /* ofxIndustrialRobotTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotTimeline.h; sourceTree = "<group>"; };
-		DDAF60A213D3014C004991CF /* ofxIndustrialRobotTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotTool.cpp; sourceTree = "<group>"; };
-		DDAF60A313D3014C004991CF /* ofxIndustrialRobotTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotTool.h; sourceTree = "<group>"; };
-		DDAF60A413D3014C004991CF /* ofxIndustrialRobotVisualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotVisualizer.cpp; sourceTree = "<group>"; };
-		DDAF60A513D3014C004991CF /* ofxIndustrialRobotVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotVisualizer.h; sourceTree = "<group>"; };
+		58B80DD813D4760500A73F5D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		58B80DD913D4760500A73F5D /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = SOURCE_ROOT; };
+		58B80DDA13D4760500A73F5D /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = SOURCE_ROOT; };
+		58B80E0813D4761400A73F5D /* ofx3DGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofx3DGraphics.cpp; sourceTree = "<group>"; };
+		58B80E0913D4761400A73F5D /* ofx3DGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofx3DGraphics.h; sourceTree = "<group>"; };
+		58B80E0A13D4761400A73F5D /* ofx3DUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofx3DUtils.h; sourceTree = "<group>"; };
+		58B80E0B13D4761400A73F5D /* ofxCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCamera.cpp; sourceTree = "<group>"; };
+		58B80E0C13D4761400A73F5D /* ofxCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCamera.h; sourceTree = "<group>"; };
+		58B80E0D13D4761400A73F5D /* ofxEasyCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasyCam.h; sourceTree = "<group>"; };
+		58B80E0E13D4761400A73F5D /* ofxLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLight.cpp; sourceTree = "<group>"; };
+		58B80E0F13D4761400A73F5D /* ofxLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLight.h; sourceTree = "<group>"; };
+		58B80E1013D4761400A73F5D /* ofxIndustrialRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobot.cpp; sourceTree = "<group>"; };
+		58B80E1113D4761400A73F5D /* ofxIndustrialRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobot.h; sourceTree = "<group>"; };
+		58B80E1213D4761400A73F5D /* ofxIndustrialRobotArmData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotArmData.cpp; sourceTree = "<group>"; };
+		58B80E1313D4761400A73F5D /* ofxIndustrialRobotArmData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotArmData.h; sourceTree = "<group>"; };
+		58B80E1413D4761400A73F5D /* ofxIndustrialRobotArmHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotArmHelper.cpp; sourceTree = "<group>"; };
+		58B80E1513D4761400A73F5D /* ofxIndustrialRobotArmHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotArmHelper.h; sourceTree = "<group>"; };
+		58B80E1613D4761400A73F5D /* ofxIndustrialRobotController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotController.cpp; sourceTree = "<group>"; };
+		58B80E1713D4761400A73F5D /* ofxIndustrialRobotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotController.h; sourceTree = "<group>"; };
+		58B80E1813D4761400A73F5D /* ofxIndustrialRobotCoreData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotCoreData.cpp; sourceTree = "<group>"; };
+		58B80E1913D4761400A73F5D /* ofxIndustrialRobotCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotCoreData.h; sourceTree = "<group>"; };
+		58B80E1A13D4761400A73F5D /* ofxIndustrialRobotCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotCue.h; sourceTree = "<group>"; };
+		58B80E1B13D4761400A73F5D /* ofxIndustrialRobotDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotDefines.h; sourceTree = "<group>"; };
+		58B80E1C13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotMotorConverter.cpp; sourceTree = "<group>"; };
+		58B80E1D13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotMotorConverter.h; sourceTree = "<group>"; };
+		58B80E1E13D4761400A73F5D /* ofxIndustrialRobotPlotter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotPlotter.cpp; sourceTree = "<group>"; };
+		58B80E1F13D4761400A73F5D /* ofxIndustrialRobotPlotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotPlotter.h; sourceTree = "<group>"; };
+		58B80E2013D4761400A73F5D /* ofxIndustrialRobotPositionCue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotPositionCue.cpp; sourceTree = "<group>"; };
+		58B80E2113D4761400A73F5D /* ofxIndustrialRobotPositionCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotPositionCue.h; sourceTree = "<group>"; };
+		58B80E2213D4761400A73F5D /* ofxIndustrialRobotSerial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotSerial.cpp; sourceTree = "<group>"; };
+		58B80E2313D4761400A73F5D /* ofxIndustrialRobotSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotSerial.h; sourceTree = "<group>"; };
+		58B80E2413D4761400A73F5D /* ofxIndustrialRobotThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotThread.cpp; sourceTree = "<group>"; };
+		58B80E2513D4761400A73F5D /* ofxIndustrialRobotThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotThread.h; sourceTree = "<group>"; };
+		58B80E2613D4761400A73F5D /* ofxIndustrialRobotTimeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotTimeline.cpp; sourceTree = "<group>"; };
+		58B80E2713D4761400A73F5D /* ofxIndustrialRobotTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotTimeline.h; sourceTree = "<group>"; };
+		58B80E2813D4761400A73F5D /* ofxIndustrialRobotTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotTool.cpp; sourceTree = "<group>"; };
+		58B80E2913D4761400A73F5D /* ofxIndustrialRobotTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotTool.h; sourceTree = "<group>"; };
+		58B80E2A13D4761400A73F5D /* ofxIndustrialRobotVisualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxIndustrialRobotVisualizer.cpp; sourceTree = "<group>"; };
+		58B80E2B13D4761400A73F5D /* ofxIndustrialRobotVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIndustrialRobotVisualizer.h; sourceTree = "<group>"; };
+		58B80E3713D4761400A73F5D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		58B80E3913D4761400A73F5D /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSAInteractiveObject.cpp; sourceTree = "<group>"; };
+		58B80E3A13D4761400A73F5D /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAInteractiveObject.h; sourceTree = "<group>"; };
+		58B80E3C13D4761400A73F5D /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
+		58B80E4213D4761400A73F5D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		58B80E4413D4761400A73F5D /* ofxMSASpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline.h; sourceTree = "<group>"; };
+		58B80E4513D4761400A73F5D /* ofxMSASpline1D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline1D.h; sourceTree = "<group>"; };
+		58B80E4613D4761400A73F5D /* ofxMSASpline2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASpline2D.cpp; sourceTree = "<group>"; };
+		58B80E4713D4761400A73F5D /* ofxMSASpline2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline2D.h; sourceTree = "<group>"; };
+		58B80E4813D4761400A73F5D /* ofxMSASpline3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASpline3D.cpp; sourceTree = "<group>"; };
+		58B80E4913D4761400A73F5D /* ofxMSASpline3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline3D.h; sourceTree = "<group>"; };
+		58B80E4A13D4761400A73F5D /* ofxMSASplineInterpolationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASplineInterpolationTypes.h; sourceTree = "<group>"; };
+		58B80E4B13D4761400A73F5D /* ofxMSASplineTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASplineTemplate.h; sourceTree = "<group>"; };
+		58B80E4C13D4761400A73F5D /* ofxMSASurface3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASurface3D.cpp; sourceTree = "<group>"; };
+		58B80E4D13D4761400A73F5D /* ofxMSASurface3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASurface3D.h; sourceTree = "<group>"; };
 		DDAF60CA13D301BF004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		DDAF60CC13D301BF004991CF /* ofxThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxThread.cpp; sourceTree = "<group>"; };
 		DDAF60CD13D301BF004991CF /* ofxThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxThread.h; sourceTree = "<group>"; };
@@ -159,18 +180,6 @@
 		DDAF60DC13D301D6004991CF /* ofxVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVec3f.h; sourceTree = "<group>"; };
 		DDAF60DD13D301D6004991CF /* ofxVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVec4f.h; sourceTree = "<group>"; };
 		DDAF60DE13D301D6004991CF /* ofxVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVectorMath.h; sourceTree = "<group>"; };
-		DDAF60E313D301FE004991CF /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
-		DDAF60E913D301FE004991CF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		DDAF60EB13D301FE004991CF /* ofxMSASpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline.h; sourceTree = "<group>"; };
-		DDAF60EC13D301FE004991CF /* ofxMSASpline1D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline1D.h; sourceTree = "<group>"; };
-		DDAF60ED13D301FE004991CF /* ofxMSASpline2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASpline2D.cpp; sourceTree = "<group>"; };
-		DDAF60EE13D301FE004991CF /* ofxMSASpline2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline2D.h; sourceTree = "<group>"; };
-		DDAF60EF13D301FE004991CF /* ofxMSASpline3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASpline3D.cpp; sourceTree = "<group>"; };
-		DDAF60F013D301FE004991CF /* ofxMSASpline3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASpline3D.h; sourceTree = "<group>"; };
-		DDAF60F113D301FE004991CF /* ofxMSASplineInterpolationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASplineInterpolationTypes.h; sourceTree = "<group>"; };
-		DDAF60F213D301FE004991CF /* ofxMSASplineTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASplineTemplate.h; sourceTree = "<group>"; };
-		DDAF60F313D301FE004991CF /* ofxMSASurface3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMSASurface3D.cpp; sourceTree = "<group>"; };
-		DDAF60F413D301FE004991CF /* ofxMSASurface3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSASurface3D.h; sourceTree = "<group>"; };
 		DDAF60FB13D30214004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		DDAF60FD13D30214004991CF /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
 		DDAF60FE13D30214004991CF /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
@@ -178,15 +187,6 @@
 		DDAF610013D30214004991CF /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		DDAF610213D30214004991CF /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		DDAF610313D30214004991CF /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
-		DDAF610D13D30256004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
-		DDAF610F13D30256004991CF /* ofx3DGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofx3DGraphics.cpp; sourceTree = "<group>"; };
-		DDAF611013D30256004991CF /* ofx3DGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofx3DGraphics.h; sourceTree = "<group>"; };
-		DDAF611113D30256004991CF /* ofx3DUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofx3DUtils.h; sourceTree = "<group>"; };
-		DDAF611213D30256004991CF /* ofxCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCamera.cpp; sourceTree = "<group>"; };
-		DDAF611313D30256004991CF /* ofxCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCamera.h; sourceTree = "<group>"; };
-		DDAF611413D30256004991CF /* ofxEasyCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasyCam.h; sourceTree = "<group>"; };
-		DDAF611513D30256004991CF /* ofxLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLight.cpp; sourceTree = "<group>"; };
-		DDAF611613D30256004991CF /* ofxLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLight.h; sourceTree = "<group>"; };
 		DDAF612D13D30283004991CF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		DDAF613013D30283004991CF /* model3DS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = model3DS.cpp; sourceTree = "<group>"; };
 		DDAF613113D30283004991CF /* model3DS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model3DS.h; sourceTree = "<group>"; };
@@ -218,9 +218,6 @@
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emptyExampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = testApp.cpp; path = src/testApp.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2421610CC549C004149E2 /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -272,80 +269,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58B80DDD13D4761400A73F5D /* ofxAseaRobot */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E0013D4761400A73F5D /* src */,
+			);
+			name = ofxAseaRobot;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		58B80E0013D4761400A73F5D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E0113D4761400A73F5D /* ofx3DUtils */,
+				58B80E1013D4761400A73F5D /* ofxIndustrialRobot.cpp */,
+				58B80E1113D4761400A73F5D /* ofxIndustrialRobot.h */,
+				58B80E1213D4761400A73F5D /* ofxIndustrialRobotArmData.cpp */,
+				58B80E1313D4761400A73F5D /* ofxIndustrialRobotArmData.h */,
+				58B80E1413D4761400A73F5D /* ofxIndustrialRobotArmHelper.cpp */,
+				58B80E1513D4761400A73F5D /* ofxIndustrialRobotArmHelper.h */,
+				58B80E1613D4761400A73F5D /* ofxIndustrialRobotController.cpp */,
+				58B80E1713D4761400A73F5D /* ofxIndustrialRobotController.h */,
+				58B80E1813D4761400A73F5D /* ofxIndustrialRobotCoreData.cpp */,
+				58B80E1913D4761400A73F5D /* ofxIndustrialRobotCoreData.h */,
+				58B80E1A13D4761400A73F5D /* ofxIndustrialRobotCue.h */,
+				58B80E1B13D4761400A73F5D /* ofxIndustrialRobotDefines.h */,
+				58B80E1C13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.cpp */,
+				58B80E1D13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.h */,
+				58B80E1E13D4761400A73F5D /* ofxIndustrialRobotPlotter.cpp */,
+				58B80E1F13D4761400A73F5D /* ofxIndustrialRobotPlotter.h */,
+				58B80E2013D4761400A73F5D /* ofxIndustrialRobotPositionCue.cpp */,
+				58B80E2113D4761400A73F5D /* ofxIndustrialRobotPositionCue.h */,
+				58B80E2213D4761400A73F5D /* ofxIndustrialRobotSerial.cpp */,
+				58B80E2313D4761400A73F5D /* ofxIndustrialRobotSerial.h */,
+				58B80E2413D4761400A73F5D /* ofxIndustrialRobotThread.cpp */,
+				58B80E2513D4761400A73F5D /* ofxIndustrialRobotThread.h */,
+				58B80E2613D4761400A73F5D /* ofxIndustrialRobotTimeline.cpp */,
+				58B80E2713D4761400A73F5D /* ofxIndustrialRobotTimeline.h */,
+				58B80E2813D4761400A73F5D /* ofxIndustrialRobotTool.cpp */,
+				58B80E2913D4761400A73F5D /* ofxIndustrialRobotTool.h */,
+				58B80E2A13D4761400A73F5D /* ofxIndustrialRobotVisualizer.cpp */,
+				58B80E2B13D4761400A73F5D /* ofxIndustrialRobotVisualizer.h */,
+				58B80E2C13D4761400A73F5D /* ofxMSAInteractiveObject */,
+				58B80E3B13D4761400A73F5D /* ofxMSASpline */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		58B80E0113D4761400A73F5D /* ofx3DUtils */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E0713D4761400A73F5D /* src */,
+			);
+			path = ofx3DUtils;
+			sourceTree = "<group>";
+		};
+		58B80E0713D4761400A73F5D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E0813D4761400A73F5D /* ofx3DGraphics.cpp */,
+				58B80E0913D4761400A73F5D /* ofx3DGraphics.h */,
+				58B80E0A13D4761400A73F5D /* ofx3DUtils.h */,
+				58B80E0B13D4761400A73F5D /* ofxCamera.cpp */,
+				58B80E0C13D4761400A73F5D /* ofxCamera.h */,
+				58B80E0D13D4761400A73F5D /* ofxEasyCam.h */,
+				58B80E0E13D4761400A73F5D /* ofxLight.cpp */,
+				58B80E0F13D4761400A73F5D /* ofxLight.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		58B80E2C13D4761400A73F5D /* ofxMSAInteractiveObject */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E3713D4761400A73F5D /* LICENSE.txt */,
+				58B80E3813D4761400A73F5D /* src */,
+			);
+			path = ofxMSAInteractiveObject;
+			sourceTree = "<group>";
+		};
+		58B80E3813D4761400A73F5D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E3913D4761400A73F5D /* ofxMSAInteractiveObject.cpp */,
+				58B80E3A13D4761400A73F5D /* ofxMSAInteractiveObject.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		58B80E3B13D4761400A73F5D /* ofxMSASpline */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E3C13D4761400A73F5D /* changelog.txt */,
+				58B80E4213D4761400A73F5D /* LICENSE.txt */,
+				58B80E4313D4761400A73F5D /* src */,
+			);
+			path = ofxMSASpline;
+			sourceTree = "<group>";
+		};
+		58B80E4313D4761400A73F5D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				58B80E4413D4761400A73F5D /* ofxMSASpline.h */,
+				58B80E4513D4761400A73F5D /* ofxMSASpline1D.h */,
+				58B80E4613D4761400A73F5D /* ofxMSASpline2D.cpp */,
+				58B80E4713D4761400A73F5D /* ofxMSASpline2D.h */,
+				58B80E4813D4761400A73F5D /* ofxMSASpline3D.cpp */,
+				58B80E4913D4761400A73F5D /* ofxMSASpline3D.h */,
+				58B80E4A13D4761400A73F5D /* ofxMSASplineInterpolationTypes.h */,
+				58B80E4B13D4761400A73F5D /* ofxMSASplineTemplate.h */,
+				58B80E4C13D4761400A73F5D /* ofxMSASurface3D.cpp */,
+				58B80E4D13D4761400A73F5D /* ofxMSASurface3D.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				DDA509AF13D31B0600CCEFD7 /* ofxMSAInteractiveObject */,
+				58B80DDD13D4761400A73F5D /* ofxAseaRobot */,
 				DDAF612C13D30283004991CF /* ofx3DModelLoader */,
 				DDAF60FA13D30214004991CF /* ofxXmlSettings */,
 				DDAF60CF13D301D6004991CF /* ofxVectorMath */,
 				DDAF60C713D301BF004991CF /* ofxThread */,
 			);
 			name = addons;
-			sourceTree = "<group>";
-		};
-		DDA509AF13D31B0600CCEFD7 /* ofxMSAInteractiveObject */ = {
-			isa = PBXGroup;
-			children = (
-				DDA509B013D31B0600CCEFD7 /* changelog.txt */,
-				DDA509B913D31B0600CCEFD7 /* install.xml */,
-				DDA509BA13D31B0600CCEFD7 /* LICENSE.txt */,
-				DDA509BB13D31B0600CCEFD7 /* src */,
-			);
-			name = ofxMSAInteractiveObject;
-			path = src/ofxMSAInteractiveObject;
-			sourceTree = "<group>";
-		};
-		DDA509BB13D31B0600CCEFD7 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDA509BC13D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp */,
-				DDA509BD13D31B0600CCEFD7 /* ofxMSAInteractiveObject.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		DDAF608613D3014C004991CF /* ofxIndustrialRobot */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF608713D3014C004991CF /* src */,
-			);
-			path = ofxIndustrialRobot;
-			sourceTree = "<group>";
-		};
-		DDAF608713D3014C004991CF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF608813D3014C004991CF /* ofxIndustrialRobot.cpp */,
-				DDAF608913D3014C004991CF /* ofxIndustrialRobot.h */,
-				DDAF608A13D3014C004991CF /* ofxIndustrialRobotArmData.cpp */,
-				DDAF608B13D3014C004991CF /* ofxIndustrialRobotArmData.h */,
-				DDAF608C13D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp */,
-				DDAF608D13D3014C004991CF /* ofxIndustrialRobotArmHelper.h */,
-				DDAF608E13D3014C004991CF /* ofxIndustrialRobotController.cpp */,
-				DDAF608F13D3014C004991CF /* ofxIndustrialRobotController.h */,
-				DDAF609213D3014C004991CF /* ofxIndustrialRobotCoreData.cpp */,
-				DDAF609313D3014C004991CF /* ofxIndustrialRobotCoreData.h */,
-				DDAF609413D3014C004991CF /* ofxIndustrialRobotCue.h */,
-				DDAF609513D3014C004991CF /* ofxIndustrialRobotDefines.h */,
-				DDAF609613D3014C004991CF /* ofxIndustrialRobotMotorConverter.cpp */,
-				DDAF609713D3014C004991CF /* ofxIndustrialRobotMotorConverter.h */,
-				DDAF609813D3014C004991CF /* ofxIndustrialRobotPlotter.cpp */,
-				DDAF609913D3014C004991CF /* ofxIndustrialRobotPlotter.h */,
-				DDAF609A13D3014C004991CF /* ofxIndustrialRobotPositionCue.cpp */,
-				DDAF609B13D3014C004991CF /* ofxIndustrialRobotPositionCue.h */,
-				DDAF609C13D3014C004991CF /* ofxIndustrialRobotSerial.cpp */,
-				DDAF609D13D3014C004991CF /* ofxIndustrialRobotSerial.h */,
-				DDAF609E13D3014C004991CF /* ofxIndustrialRobotThread.cpp */,
-				DDAF609F13D3014C004991CF /* ofxIndustrialRobotThread.h */,
-				DDAF60A013D3014C004991CF /* ofxIndustrialRobotTimeline.cpp */,
-				DDAF60A113D3014C004991CF /* ofxIndustrialRobotTimeline.h */,
-				DDAF60A213D3014C004991CF /* ofxIndustrialRobotTool.cpp */,
-				DDAF60A313D3014C004991CF /* ofxIndustrialRobotTool.h */,
-				DDAF60A413D3014C004991CF /* ofxIndustrialRobotVisualizer.cpp */,
-				DDAF60A513D3014C004991CF /* ofxIndustrialRobotVisualizer.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		DDAF60C713D301BF004991CF /* ofxThread */ = {
@@ -397,33 +445,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		DDAF60E213D301FE004991CF /* ofxMSASpline */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF60E313D301FE004991CF /* changelog.txt */,
-				DDAF60E913D301FE004991CF /* LICENSE.txt */,
-				DDAF60EA13D301FE004991CF /* src */,
-			);
-			path = ofxMSASpline;
-			sourceTree = "<group>";
-		};
-		DDAF60EA13D301FE004991CF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF60EB13D301FE004991CF /* ofxMSASpline.h */,
-				DDAF60EC13D301FE004991CF /* ofxMSASpline1D.h */,
-				DDAF60ED13D301FE004991CF /* ofxMSASpline2D.cpp */,
-				DDAF60EE13D301FE004991CF /* ofxMSASpline2D.h */,
-				DDAF60EF13D301FE004991CF /* ofxMSASpline3D.cpp */,
-				DDAF60F013D301FE004991CF /* ofxMSASpline3D.h */,
-				DDAF60F113D301FE004991CF /* ofxMSASplineInterpolationTypes.h */,
-				DDAF60F213D301FE004991CF /* ofxMSASplineTemplate.h */,
-				DDAF60F313D301FE004991CF /* ofxMSASurface3D.cpp */,
-				DDAF60F413D301FE004991CF /* ofxMSASurface3D.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		DDAF60FA13D30214004991CF /* ofxXmlSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,30 +472,6 @@
 			children = (
 				DDAF610213D30214004991CF /* ofxXmlSettings.cpp */,
 				DDAF610313D30214004991CF /* ofxXmlSettings.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		DDAF610813D30256004991CF /* ofx3DUtils */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF610D13D30256004991CF /* install.xml */,
-				DDAF610E13D30256004991CF /* src */,
-			);
-			path = ofx3DUtils;
-			sourceTree = "<group>";
-		};
-		DDAF610E13D30256004991CF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDAF610F13D30256004991CF /* ofx3DGraphics.cpp */,
-				DDAF611013D30256004991CF /* ofx3DGraphics.h */,
-				DDAF611113D30256004991CF /* ofx3DUtils.h */,
-				DDAF611213D30256004991CF /* ofxCamera.cpp */,
-				DDAF611313D30256004991CF /* ofxCamera.h */,
-				DDAF611413D30256004991CF /* ofxEasyCam.h */,
-				DDAF611513D30256004991CF /* ofxLight.cpp */,
-				DDAF611613D30256004991CF /* ofxLight.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -704,12 +701,9 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DDAF610813D30256004991CF /* ofx3DUtils */,
-				DDAF60E213D301FE004991CF /* ofxMSASpline */,
-				DDAF608613D3014C004991CF /* ofxIndustrialRobot */,
-				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
-				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				58B80DD813D4760500A73F5D /* main.cpp */,
+				58B80DD913D4760500A73F5D /* testApp.cpp */,
+				58B80DDA13D4760500A73F5D /* testApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -825,7 +819,7 @@
 /* Begin PBXProject section */
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "emptyExample" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "simpleAseaExample" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -879,39 +873,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
-				DDAF60A613D3014C004991CF /* ofxIndustrialRobot.cpp in Sources */,
-				DDAF60A713D3014C004991CF /* ofxIndustrialRobotArmData.cpp in Sources */,
-				DDAF60A813D3014C004991CF /* ofxIndustrialRobotArmHelper.cpp in Sources */,
-				DDAF60A913D3014C004991CF /* ofxIndustrialRobotController.cpp in Sources */,
-				DDAF60AB13D3014C004991CF /* ofxIndustrialRobotCoreData.cpp in Sources */,
-				DDAF60AC13D3014C004991CF /* ofxIndustrialRobotMotorConverter.cpp in Sources */,
-				DDAF60AD13D3014C004991CF /* ofxIndustrialRobotPlotter.cpp in Sources */,
-				DDAF60AE13D3014C004991CF /* ofxIndustrialRobotPositionCue.cpp in Sources */,
-				DDAF60AF13D3014C004991CF /* ofxIndustrialRobotSerial.cpp in Sources */,
-				DDAF60B013D3014C004991CF /* ofxIndustrialRobotThread.cpp in Sources */,
-				DDAF60B113D3014C004991CF /* ofxIndustrialRobotTimeline.cpp in Sources */,
-				DDAF60B213D3014C004991CF /* ofxIndustrialRobotTool.cpp in Sources */,
-				DDAF60B313D3014C004991CF /* ofxIndustrialRobotVisualizer.cpp in Sources */,
 				DDAF60CE13D301BF004991CF /* ofxThread.cpp in Sources */,
 				DDAF60DF13D301D6004991CF /* ofxMatrix3x3.cpp in Sources */,
 				DDAF60E013D301D6004991CF /* ofxMatrix4x4.cpp in Sources */,
 				DDAF60E113D301D6004991CF /* ofxQuaternion.cpp in Sources */,
-				DDAF60F713D301FE004991CF /* ofxMSASpline2D.cpp in Sources */,
-				DDAF60F813D301FE004991CF /* ofxMSASpline3D.cpp in Sources */,
-				DDAF60F913D301FE004991CF /* ofxMSASurface3D.cpp in Sources */,
 				DDAF610413D30214004991CF /* tinyxml.cpp in Sources */,
 				DDAF610513D30214004991CF /* tinyxmlerror.cpp in Sources */,
 				DDAF610613D30214004991CF /* tinyxmlparser.cpp in Sources */,
 				DDAF610713D30214004991CF /* ofxXmlSettings.cpp in Sources */,
-				DDAF611913D30256004991CF /* ofx3DGraphics.cpp in Sources */,
-				DDAF611A13D30256004991CF /* ofxCamera.cpp in Sources */,
-				DDAF611B13D30256004991CF /* ofxLight.cpp in Sources */,
 				DDAF613813D30283004991CF /* model3DS.cpp in Sources */,
 				DDAF613913D30283004991CF /* texture3DS.cpp in Sources */,
 				DDAF613A13D30283004991CF /* ofx3dModelLoader.cpp in Sources */,
-				DDA509C013D31B0600CCEFD7 /* ofxMSAInteractiveObject.cpp in Sources */,
+				58B80DDB13D4760500A73F5D /* main.cpp in Sources */,
+				58B80DDC13D4760500A73F5D /* testApp.cpp in Sources */,
+				58B80E5213D4761400A73F5D /* ofx3DGraphics.cpp in Sources */,
+				58B80E5313D4761400A73F5D /* ofxCamera.cpp in Sources */,
+				58B80E5413D4761400A73F5D /* ofxLight.cpp in Sources */,
+				58B80E5513D4761400A73F5D /* ofxIndustrialRobot.cpp in Sources */,
+				58B80E5613D4761400A73F5D /* ofxIndustrialRobotArmData.cpp in Sources */,
+				58B80E5713D4761400A73F5D /* ofxIndustrialRobotArmHelper.cpp in Sources */,
+				58B80E5813D4761400A73F5D /* ofxIndustrialRobotController.cpp in Sources */,
+				58B80E5913D4761400A73F5D /* ofxIndustrialRobotCoreData.cpp in Sources */,
+				58B80E5A13D4761400A73F5D /* ofxIndustrialRobotMotorConverter.cpp in Sources */,
+				58B80E5B13D4761400A73F5D /* ofxIndustrialRobotPlotter.cpp in Sources */,
+				58B80E5C13D4761400A73F5D /* ofxIndustrialRobotPositionCue.cpp in Sources */,
+				58B80E5D13D4761400A73F5D /* ofxIndustrialRobotSerial.cpp in Sources */,
+				58B80E5E13D4761400A73F5D /* ofxIndustrialRobotThread.cpp in Sources */,
+				58B80E5F13D4761400A73F5D /* ofxIndustrialRobotTimeline.cpp in Sources */,
+				58B80E6013D4761400A73F5D /* ofxIndustrialRobotTool.cpp in Sources */,
+				58B80E6113D4761400A73F5D /* ofxIndustrialRobotVisualizer.cpp in Sources */,
+				58B80E6413D4761400A73F5D /* ofxMSAInteractiveObject.cpp in Sources */,
+				58B80E6713D4761400A73F5D /* ofxMSASpline2D.cpp in Sources */,
+				58B80E6813D4761400A73F5D /* ofxMSASpline3D.cpp in Sources */,
+				58B80E6913D4761400A73F5D /* ofxMSASurface3D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1193,7 +1187,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "emptyExample" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "simpleAseaExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,

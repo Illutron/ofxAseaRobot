@@ -9,3 +9,6 @@ build/
 *.perspectivev3
 
 xcuserdata
+
+
+/simpleExample/bin/emptyExampleDebug.app
