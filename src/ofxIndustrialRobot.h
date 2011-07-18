@@ -14,6 +14,14 @@
 
 class ofxIndustrialRobot {
 public:
+
+    enum Input {
+        Timeline,
+        Slider, 
+		Gravity,
+		ManualPosition
+    };
+    
 	ofxIndustrialRobot(ofBaseApp * app);
 	void drawVisualizer(int x, int y, int w, int h);
 	
@@ -25,6 +33,8 @@ public:
 	int timelineCuesLeft(bool lock=true);
 	bool setGravityTarget(ofxVec3f target, ofxVec3f dir, float force = 1.0, float maxSpeed = 0,  ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
 	bool isLegalTarget(ofxVec3f target, ofxVec3f dir, ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
+    
+    void setInput(Input input);
 
 	ofxVec3f getCurrentTarget(bool lock=true);
 	ofxVec3f getCurrentDir(bool lock=true);

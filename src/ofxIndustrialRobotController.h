@@ -16,13 +16,7 @@ class ofxIndustrialRobotController {
 
 	
 public:
-	enum Input {
-        Timeline,
-        Slider, 
-		Gravity,
-		ManualPosition, 
-		Test3
-    };
+
 
 	ofxIndustrialRobotController(ofxIndustrialRobotCoreData * _data, ofxIndustrialRobotArmHelper * _helper, ofxIndustrialRobotTimeline * _timeline, ofxIndustrialRobotPlotter * _plotter);
 	

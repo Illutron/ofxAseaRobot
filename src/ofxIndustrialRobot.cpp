@@ -204,6 +204,10 @@ float ofxIndustrialRobot::getHandHeight(bool lock){
 	return thread.coreData.tool->h/2.0 + thread.coreData.arms[3].length +  thread.coreData.arms[4].length;
 }
 
+void ofxIndustrialRobot::setInput(Input input){
+    thread.controller->setInput(input);
+}
+
 //---
 
 

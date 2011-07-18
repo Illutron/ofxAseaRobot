@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     industrialRobot = new ofxIndustrialRobot(this);
-    industrialRobot->thread.controller->setInput(ofxIndustrialRobotController::Gravity);
+    industrialRobot->setInput(ofxIndustrialRobot::Gravity);
     industrialRobot->gotoStartPosition();    
 }
 
