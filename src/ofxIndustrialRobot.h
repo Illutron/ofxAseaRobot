@@ -73,6 +73,14 @@ public:
 	void panic(string msg);
 	
 	void gotoStartPosition();
+    
+    //The position the robot is in after a reset
+    void gotoResetPosition();
+    
+    ofxIndustrialRobotSerial * getSerial();
+    
+    void resetRobot();
+    
 	bool startReady;
 	bool startPhase2;
 

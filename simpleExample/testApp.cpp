@@ -4,7 +4,7 @@
 void testApp::setup(){
     industrialRobot = new ofxIndustrialRobot(this);
     industrialRobot->setInput(ofxIndustrialRobot::Gravity);
-    industrialRobot->gotoStartPosition();    
+    industrialRobot->gotoResetPosition();					
 }
 
 //--------------------------------------------------------------
@@ -36,114 +36,18 @@ void testApp::update(){
 		industrialRobot->thread.unlock();
 	}*/
     
-	unsigned char b1=0;
-	for(int i=0;i<8;i++){
-		if(byteone[i]){
-			b1 |= 0x01<<i;
-		}
-	}
-	
-	unsigned char b2=0;
-	for(int i=0;i<8;i++){
-		if(bytetwo[i]){
-			b2 |= 0x01<<i;
-		}
-	}
-	
-	if(industrialRobot->thread.serial->lock()){
-		industrialRobot->thread.serial->outbuf[24-3] = b1;
-		//	cout<<(unsigned char )b1<<"  "<<(unsigned char )b2<<endl;
-		industrialRobot->thread.serial->outbuf[24-2] = b2;
-		
+	if(industrialRobot->getSerial()->lock()){
 		for(int i=0;i<8;i++){				
-			if(industrialRobot->thread.serial->returnedFlags[i])
+			if(industrialRobot->getSerial()->returnedFlags[i])
 				bytestatus[i] = true;
 			else
 				bytestatus[i] = false;
 		}
-		
-		if(resetting > 0){
-			switch (resetting) {
-				case 1:
-					unlockMotors = false;
-					resetting++;
-					byteone[5] = true;
-					ofSleepMillis(20);
-					break;
-                    
-				case 2:
-					byteone[5] = false;                    
-					resetting++;
-					break;		
-				case 3:
-					if(bytetwo[1]){
-						if(bytestatus[1]){
-							resetting ++;
-						}
-					} else {
-						bytetwo[1] = true;
-						unlockMotors = (true);
-					}
-					break;
-				case 4:
-					resetting++;
-					break;
-				case 5:
-					if(bytetwo[3]){
-						if(bytestatus[3] && bytestatus[4]){
-							resetting ++;
-						}
-					} else {
-						bytetwo[3] = true;
-						bytetwo[4] = true;
-					}					
-					break;
-				case 6:
-					if(bytetwo[2]){
-						if(bytestatus[2]){
-							resetting ++;
-						}
-					} else {
-						bytetwo[2] = true;
-                        //		ofSleepMillis(10);
-					}					
-					break;
-				case 7:
-					if(bytetwo[0]){
-						if(bytestatus[0]){
-							resetting ++;
-						}
-					} else {
-						bytetwo[0] = true;
-					}					
-					break;
-				case 8:
-					for(int i=0;i<5;i++){
-						bytetwo[i] = false;
-					}
-					industrialRobot->thread.controller->gotoResetPosition();					
-					for(int i=0;i<5;i++){
-						//motorSlider[i]->setValue(industrialRobot->thread.coreData.arms[i].rotation*100.0);				
-					}
-					resetting = 0;
-					break;
-				default:
-					break;
-			}
-            
-		}
-		
-	/*	if(industrialRobot->thread.serial->connected){
-			resetMotors->setEnabled(true);
-			unlockMotors->setEnabled(true);
-		} else {
-			resetMotors->setEnabled(false);
-			unlockMotors->setEnabled(false);			
-		}*/
+
 		
 		for(int i=0;i<5;i++){
 			string l;
-			if(industrialRobot->thread.serial->connected){
+			if(industrialRobot->getSerial()->connected){
 				l = "Motor "+ofToString(i,0)+": ";
 				if(!byteone[7]){
 					l+= "LOCKED ";

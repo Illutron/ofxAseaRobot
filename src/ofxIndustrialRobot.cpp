@@ -20,6 +20,14 @@ ofxIndustrialRobot::ofxIndustrialRobot(ofBaseApp * _app){
 	
 }
 
+ofxIndustrialRobotSerial * ofxIndustrialRobot::getSerial(){
+    return thread.serial;
+}
+
+void ofxIndustrialRobot::gotoResetPosition(){
+    thread.controller->gotoResetPosition();    
+}
+
 void ofxIndustrialRobot::gotoStartPosition(){
 	
 	/*if(rotations[0] < -90){
@@ -390,4 +398,10 @@ void ofxIndustrialRobot::panic(string msg){
 	thread.panicMessage = msg;
 	thread.panic = true;
 }
+
+void ofxIndustrialRobot::resetRobot(){
+    getSerial()->resetting = 1;
+    gotoResetPosition();					
+}
+
 //---

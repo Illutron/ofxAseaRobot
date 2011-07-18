@@ -1,14 +1,10 @@
- #include "ofxIndustrialRobotSerial.h"
+#include "ofxIndustrialRobotSerial.h"
 
 
 
 ofxIndustrialRobotSerial::ofxIndustrialRobotSerial(){
 	serial.setVerbose(false);
 	connected = serial.setup("/dev/tty.usbserial-A7007bv1", 115200);	
-	nTimesRead = 0;
-	nBytesRead = 0;
-	readTime = 0;
-	memset(bytesReadString, 0, 4);
 	
 	for(int i=0;i<5;i++){
 		inValues[i] = 0;
@@ -18,27 +14,29 @@ ofxIndustrialRobotSerial::ofxIndustrialRobotSerial(){
 	dptr = 0;
 	botStatus = 0;
 	hasReceivenLastPosition = false;
-	//goodCounter = 0;
 	errorCounter = 0;
+    
+    for(int i=0;i<8;i++){
+        sendFlags[0][i] = false;
+        sendFlags[1][i] = false;
+    }
+    
+    resetting = 0;
 }
 
 void ofxIndustrialRobotSerial::start(){
 	startThread(true, false);   // blocking, verbose
 }
 
-void ofxIndustrialRobotSerial::setValue(int n, float val){
-	outValues[n] = val;
-}
+
 
 
 void ofxIndustrialRobotSerial::sendValues(){
 	bool ok = true;
 	if(connected){
-		//((float*)outbuf)[3]=(float)(sin(ofGetElapsedTimeMillis()/1000.0)*TWO_PI);
 		for(int i=0;i<num_axis;i++){
-			if(outValues[i] != outValues[i]){
-			//	cout<<"ARHRHRHIUAOSHDIUASHDIUH"<<endl;
-				ok  =false;
+			if(outValues[i] != outValues[i]){ //Ehh?
+				ok = false;
 			}
 			if(outValues[i] > 5000){
 				outValues[i] = 5000;	
@@ -46,18 +44,31 @@ void ofxIndustrialRobotSerial::sendValues(){
 			if(outValues[i] < -5000){
 				outValues[i] = -5000;	
 			}
-//			cout<<outValues[i] <<endl;
 			((float*)outbuf)[i]=outValues[i];
 		}
+        
+        unsigned char b1=0;
+        for(int i=0;i<8;i++){
+            if(sendFlags[0][i]){
+                b1 |= 0x01<<i;
+            }
+        }
+        unsigned char b2=0;
+        for(int i=0;i<8;i++){
+            if(sendFlags[1][i]){
+                b2 |= 0x01<<i;
+            }
+        }
+
+        outbuf[DATAGRAM_LENGTH-4]='*';
+        outbuf[DATAGRAM_LENGTH-3] = b1;
+        outbuf[DATAGRAM_LENGTH-2] = b2;
 		
-		if(ok){
-		outbuf[DATAGRAM_LENGTH-4]='*';
-		
-		for(int i=0;i<DATAGRAM_LENGTH;i++){
-			sendingoutbuf[i] = outbuf[i];
-		}
-		
-		serial.writeBytes(sendingoutbuf, DATAGRAM_LENGTH);
+		if(ok){            
+            for(int i=0;i<DATAGRAM_LENGTH;i++){
+                sendingoutbuf[i] = outbuf[i];
+            }            
+            serial.writeBytes(sendingoutbuf, DATAGRAM_LENGTH);
 		}
 	}
 	
@@ -76,6 +87,76 @@ void ofxIndustrialRobotSerial::step(){
 			sendValues();
 		}
 		//	cout<<"In: "<<inValues[1]<<endl;
+        
+        if(resetting > 0){
+			switch (resetting) {
+				case 1: //Reset power
+                    setUnlockFlag(false);
+					resetting++;
+					setResetPowerFlag(true);
+					ofSleepMillis(20);
+					break;                    
+				case 2: //Disable reset power
+                    setResetPowerFlag(false);              
+					resetting++;
+					break;		
+				case 3: //Reset 1
+					if(resetMotorFlag(1)){
+						if(motorFlag(1)){ //Check if ok
+							resetting ++;
+						}
+					} else {
+                        setResetMotorFlag(1, true);
+                        setUnlockFlag(true);
+					}
+					break;
+				case 4: //Nothing
+					resetting++;
+					break;
+				case 5: //reset 3 & 4
+					if(resetMotorFlag(3)){
+						if(motorFlag(3) && motorFlag(4)){
+							resetting ++;
+						}
+					} else {
+						setResetMotorFlag(3, true);
+						setResetMotorFlag(4, true);
+					}					
+					break;
+				case 6: //Reset 2
+					if(resetMotorFlag(2)){
+						if(motorFlag(2)){
+							resetting ++;
+						}
+					} else {
+						setResetMotorFlag(2, true);
+                        //		ofSleepMillis(10);
+					}					
+					break;
+				case 7:
+					if(resetMotorFlag(0)){
+						if(motorFlag(0)){
+							resetting ++;
+						}
+					} else {
+						setResetMotorFlag(0, true);
+					}					
+					break;
+				case 8:
+					for(int i=0;i<5;i++){
+						setResetMotorFlag(i, false);
+					}
+					//industrialRobot->thread.controller->gotoResetPosition();					
+					for(int i=0;i<5;i++){
+						//motorSlider[i]->setValue(industrialRobot->thread.coreData.arms[i].rotation*100.0);				
+					}
+					resetting = 0;
+					break;
+				default:
+					break;
+			}
+            
+		}
 	}
 	
 }
@@ -125,39 +206,39 @@ void ofxIndustrialRobotSerial::recvChar(char c){
 			{
 				if(INBUF[DATAGRAM_LENGTH-4]=='*')
 				{		
-						
-						botStatus = INBUF[DATAGRAM_LENGTH-1];
-						for(int i =0;i<num_axis;i++){
-							//	cout<<inValues[i]<<endl;
-							inValues[i] = ((float*)INBUF)[i];
-						}
-						//HAPPY
-						if(!hasReceivenLastPosition){
-							for(int i =0;i<num_axis;i++){
-								initValues[i] = inValues[i];
-							}
-							hasReceivenLastPosition = true;
-							
-						}
-						//	printf("%02x\r\n",botStatus);
-						for(int i=0;i<8;i++){				
-							if(botStatus & 0x01<<i)
-								returnedFlags[i] = true;
-							else
-								returnedFlags[i] = false;
-						}
-						
-						if(botStatus != 0x1f){
+                    
+                    botStatus = INBUF[DATAGRAM_LENGTH-1];
+                    for(int i =0;i<num_axis;i++){
+                        //	cout<<inValues[i]<<endl;
+                        inValues[i] = ((float*)INBUF)[i];
+                    }
+                    //HAPPY
+                    if(!hasReceivenLastPosition){
+                        for(int i =0;i<num_axis;i++){
+                            initValues[i] = inValues[i];
+                        }
+                        hasReceivenLastPosition = true;
+                        
+                    }
+                    //	printf("%02x\r\n",botStatus);
+                    for(int i=0;i<8;i++){				
+                        if(botStatus & 0x01<<i)
+                            returnedFlags[i] = true;
+                        else
+                            returnedFlags[i] = false;
+                    }
+                    
+                    if(botStatus != 0x1f){
 						//	printf("%0x2f:%0x2f:%0x2f:%0x2f\r\n",INBUF[DATAGRAM_LENGTH-4],INBUF[DATAGRAM_LENGTH-3],INBUF[DATAGRAM_LENGTH-2],INBUF[DATAGRAM_LENGTH-1]);
-						}
+                    }
 					dptr=0;
-
-
+                    
+                    
 					
 				}
 				else
 				{
-			//		goodCounter = 0;
+                    //		goodCounter = 0;
 					cout<<"Error in serialcommunication nr. "<<errorCounter<<endl;
 					errorCounter++;
 					if(INBUF[DATAGRAM_LENGTH-5]=='*'){
@@ -186,8 +267,42 @@ bool ofxIndustrialRobotSerial::panicFlag(){
 
 bool ofxIndustrialRobotSerial::lockFlag(){
 	return !outbuf[24-3];
-
 }
+
+bool ofxIndustrialRobotSerial::resetMotorFlag(int n){
+    return sendFlags[1][n];
+}
+
+bool ofxIndustrialRobotSerial::speedLimitFlag(){
+    return sendFlags[0][0];
+}
+bool ofxIndustrialRobotSerial::resetPowerFlag(){
+    return sendFlags[0][5];
+}
+bool ofxIndustrialRobotSerial::unlockFlag(){
+    return  sendFlags[0][7];
+}
+
+void ofxIndustrialRobotSerial::setValue(int n, float val){
+	outValues[n] = val;
+}
+
+void ofxIndustrialRobotSerial::setSpeedLimitFlag(bool flag){
+    sendFlags[0][0] = flag;
+}
+
+void ofxIndustrialRobotSerial::setResetPowerFlag(bool flag){
+    sendFlags[0][5] = flag;
+}
+
+void ofxIndustrialRobotSerial::setUnlockFlag(bool flag){
+    sendFlags[0][7] = flag;
+}
+
+void ofxIndustrialRobotSerial::setResetMotorFlag(int motor, bool flag){
+    sendFlags[1][motor] = flag;
+}
+
 
 
 void ofxIndustrialRobotSerial::threadedFunction(){
@@ -195,7 +310,7 @@ void ofxIndustrialRobotSerial::threadedFunction(){
 	while( isThreadRunning() != 0 ){
 		if( lock() ){
 			//				count++;
-//			lastStep = ofGetElapsedTimeMillis();
+            //			lastStep = ofGetElapsedTimeMillis();
 			step();
 			unlock();
 			ofSleepMillis(8);
