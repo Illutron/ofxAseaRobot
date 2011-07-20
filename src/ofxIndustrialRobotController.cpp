@@ -1,5 +1,6 @@
 
 #include "ofxIndustrialRobotController.h"
+#include "ofxIndustrialRobot.h"
 
 ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCoreData* _data, ofxIndustrialRobotArmHelper * _helper, ofxIndustrialRobotTimeline * _timeline, ofxIndustrialRobotPlotter * _plotter){
 	data = _data;
@@ -7,7 +8,7 @@ ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCor
 	timeline = _timeline;
 	plotter = _plotter;
 	
-	input = Slider;
+	input = ofxIndustrialRobot::Slider;
 	targetPosition = ofxVec3f();
 	targetDir = ofxVec3f(0.0, -1.0, 0.0);
 	lastTargetPosition = ofxVec3f();
@@ -36,13 +37,13 @@ ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCor
 
 void ofxIndustrialRobotController::setInput(int _input){
 	input = _input;
-	if(input == Gravity){
+	if(input == ofxIndustrialRobot::Gravity){
 		gravityV = ofxVec3f(0.0,0.0,0.0);
 		gravityVDir = ofxVec3f(0.0,0.0,0.0);
 		gravityTarget = targetPosition;
 		gravityTargetDir = targetDir;
 		
-	} if(input == Timeline){
+	} if(input == ofxIndustrialRobot::Timeline){
 		timeline->clear();
 		addCue(100, targetPosition, targetDir);
 	}
@@ -201,7 +202,7 @@ void ofxIndustrialRobotController::step(float framerate){
 		//*******************
 		//Timeline position
 		//*******************
-		if(input == Timeline && !changingVariant){
+		if(input == ofxIndustrialRobot::Timeline && !changingVariant){
 			timeline->step(vTarget, framerate);
 			targetPosition = timeline->getPosition();
 			targetDir = timeline->getHandPosition();
@@ -221,7 +222,7 @@ void ofxIndustrialRobotController::step(float framerate){
 		//*******************
 		//Manual position
 		//*******************
-		if(input == ManualPosition && !changingVariant){	
+		if(input == ofxIndustrialRobot::ManualPosition && !changingVariant){	
 			variant = ofxIndustrialRobotDefines::Auto;
 			gravityMaxSpeed = 1.0;
 			gravityForce = 0.03;
@@ -230,7 +231,7 @@ void ofxIndustrialRobotController::step(float framerate){
 		//******************
 		//Gravity
 		//******************
-		if(input == Gravity || input == ManualPosition){
+		if(input == ofxIndustrialRobot::Gravity || input == ofxIndustrialRobot::ManualPosition){
 			//Zone security
 			float rotations[5];
 			getArmRotations(gravityTarget, gravityTargetDir, helper->data->reverseHeadPercentGoal, rotations, false);
@@ -457,7 +458,7 @@ void ofxIndustrialRobotController::step(float framerate){
 		//Manual motor / slider
 		//*******************
 		
-		if(input == Slider  && !changingVariant){
+		if(input == ofxIndustrialRobot::Slider  && !changingVariant){
 			float rotations[5];
 			getArmRotations(targetPosition, targetDir, helper->data->reverseHeadPercent, rotations, false);
 			targetPosition = helper->getEndPosition(5);
@@ -662,11 +663,11 @@ bool ofxIndustrialRobotController::addCue(float speed, ofxVec3f target, ofxVec3f
 }
 
 void ofxIndustrialRobotController::mousePressed(ofxVec3f target){
-	if(input == Timeline){
+	if(input == ofxIndustrialRobot::Timeline){
 		if(addCue(100, target, targetDir)){
 			cout<<"Added "<<target.x<<", "<<target.y<<", "<<target.z<<endl;
 		}
-	} else if(input == Gravity){
+	} else if(input == ofxIndustrialRobot::Gravity){
 		if(legalPosition(target, targetDir, 0.0) || legalPosition(target, targetDir, 1.0)){
 			gravityTarget = target;
 			gravityTargetDir = targetDir;

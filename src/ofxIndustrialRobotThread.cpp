@@ -68,11 +68,11 @@ void ofxIndustrialRobotThread::threadedFunction(){
 
 void ofxIndustrialRobotThread::step(){
 	if(serial->lock()){
-		if(panic){
+		/*if(panic){
 			unsigned char b1=0;
 		//	b1 |= 0x01<<7;
 			serial->outbuf[24-3] = b1;
-		}
+		}*/
 		if(sendToRobot){
 			for(int i=0;i<5;i++){
 				serial->setValue(i, converter->convertRotation(i));

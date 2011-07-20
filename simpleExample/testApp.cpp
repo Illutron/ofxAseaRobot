@@ -4,12 +4,13 @@
 void testApp::setup(){
     industrialRobot = new ofxIndustrialRobot(this);
     industrialRobot->setInput(ofxIndustrialRobot::Gravity);
-    industrialRobot->gotoResetPosition();					
+    industrialRobot->gotoResetPosition();
+    //ofSetFrameRate(100);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    industrialRobot->setGravityTarget(ofxVec3f(1487.6, 666.2, 1038.6), ofxVec3f(0.77, -0.44, 0.62));
+  //  industrialRobot->setGravityTarget(ofxVec3f(1487.6, 666.2, 1038.6), ofxVec3f(0.77, -0.44, 0.62));
     
     
 	if(industrialRobot->getEmergencyStop()){
@@ -19,22 +20,22 @@ void testApp::update(){
 	//tjeckCurrentRobotController();	
 	
 	//Check for changes in control mode (tilf¿jet af mads)
-/*	for(int i = 0; i < 4;i++)
-	{
-		if(inputRadio[i]->isChecked() && controlMode != i)
-		{
-			setControlMode(i);
-		}
-	}*/
+    /*	for(int i = 0; i < 4;i++)
+     {
+     if(inputRadio[i]->isChecked() && controlMode != i)
+     {
+     setControlMode(i);
+     }
+     }*/
 	
 	
 	/*if(industrialRobot->thread.lock()){
-		if(loadXmlButton->isDown()){
-			industrialRobot->thread.converter->loadXml();
-			loadXmlButton->setDown(false);
-		}
-		industrialRobot->thread.unlock();
-	}*/
+     if(loadXmlButton->isDown()){
+     industrialRobot->thread.converter->loadXml();
+     loadXmlButton->setDown(false);
+     }
+     industrialRobot->thread.unlock();
+     }*/
     
 	if(industrialRobot->getSerial()->lock()){
 		for(int i=0;i<8;i++){				
@@ -43,7 +44,7 @@ void testApp::update(){
 			else
 				bytestatus[i] = false;
 		}
-
+        
 		
 		for(int i=0;i<5;i++){
 			string l;
@@ -97,49 +98,54 @@ void testApp::update(){
 		}
 		
 		/*if(resetMotors->isDown()){
-			resetting  = 1;
-		}*/
+         resetting  = 1;
+         }*/
 		
 		/*if(unlockMotors && !byteone[7]){
-			byteone[7] = true;
-		} else if(!unlockMotors && byteone[7]){
-			byteone[7] = (false);
-		}
-		*/
+         byteone[7] = true;
+         } else if(!unlockMotors && byteone[7]){
+         byteone[7] = (false);
+         }
+         */
 		
 		industrialRobot->thread.serial->unlock();
 	}	
 	
-	if(resetting > 0){
+/*	if(resetting > 0){
 		ofSleepMillis(200);
         
 	}
-	
+*/	
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     ofBackground(0, 0, 0);
-   industrialRobot->visualizer->draw3d(0, 0, ofGetWidth()/2, ofGetHeight()/2);
-   industrialRobot->visualizer->drawside( ofGetWidth()/2, 0, ofGetWidth()/2, ofGetHeight()/2);
+    industrialRobot->visualizer->draw3d(0, 0, ofGetWidth()/2, ofGetHeight()/2);
+    industrialRobot->visualizer->drawside( ofGetWidth()/2, 0, ofGetWidth()/2, ofGetHeight()/2);
+    industrialRobot->visualizer->drawtop( ofGetWidth()/2,  ofGetHeight()/2, ofGetWidth()/2, ofGetHeight()/2);
+    
+    bool * byteone = industrialRobot->thread.serial->sendFlags[0];
+    bool * bytetwo = industrialRobot->thread.serial->sendFlags[1];
+    bool * bytestatus = industrialRobot->thread.serial->returnedFlags;
     
     ofSetColor(255, 255, 255,255);
     for(int i=0;i<8;i++){
-        if(byteone[i]){
+        if(!byteone[i]){
             ofNoFill();
         } else {
             ofFill();
         }
         ofRect(10+i*40, ofGetHeight()-(10+3*40), 30, 30);
-
-        if(bytetwo[i]){
+        
+        if(!bytetwo[i]){
             ofNoFill();
         } else {
             ofFill();
         }
-      
+        
         ofRect(10+i*40, ofGetHeight()-(10+2*40), 30, 30);
-        if(bytestatus[i]){
+        if(!bytestatus[i]){
             ofNoFill();
         } else {
             ofFill();
@@ -149,13 +155,17 @@ void testApp::draw(){
     for(int i=0;i<5;i++){
         ofDrawBitmapString(motorStatusLabel[i], 10+200*i, ofGetHeight()-(10+4*40));
     }
-            ofDrawBitmapString(panicStatus, 10, ofGetHeight()-(10+5*40));
+    ofDrawBitmapString(panicStatus, 10, ofGetHeight()-(10+5*40));
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
     if(key == 'a'){
-        resetting = 1;
+        industrialRobot->resetRobot();
+    }
+    if(key == 'u'){
+//        industrialRobot->set
+        industrialRobot->thread.serial->setUnlockFlag(!industrialRobot->thread.serial->unlockFlag());
     }
     
     if(key == '1'){
@@ -164,15 +174,15 @@ void testApp::keyPressed(int key){
     if(key == '2'){
         byteone[1] = !byteone[1];
     }
-
+    
     if(key == '3'){
         byteone[2] = !byteone[2];
     }
-
+    
     if(key == '4'){
         byteone[3] = !byteone[3];
     }
-
+    
     if(key == '5'){
         byteone[4] = !byteone[4];
     }
@@ -182,7 +192,7 @@ void testApp::keyPressed(int key){
     if(key == '7'){
         byteone[6] = !byteone[6];
     }
-
+    
     if(key == '8'){
         byteone[7] = !byteone[7];
     }
@@ -215,36 +225,36 @@ void testApp::keyPressed(int key){
     if(key == 'i'){
         bytetwo[7] = !bytetwo[7];
     }
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-
+    
 }
 

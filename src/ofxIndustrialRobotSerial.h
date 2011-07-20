@@ -85,6 +85,9 @@ public:
 	//--------------------------
 	void threadedFunction();	
 
+    int inValues[5];
+    float initValues[5];
+
 
 private:
 	unsigned char syncstate;
@@ -101,9 +104,7 @@ private:
     
     ofSerial	serial;
     
-    int inValues[5];
     int outValues[5];
-    float initValues[5];
     
     static const int num_axis = 5;
     unsigned char outbuf[DATAGRAM_LENGTH];
