@@ -3,7 +3,6 @@
 
 #include "ofxIndustrialRobotArmData.h"
 #include "ofxIndustrialRobotTool.h"
-#include "ofxVectorMath.h"
 
 class ofxIndustrialRobotCoreData {
 public:
@@ -12,7 +11,7 @@ public:
 	ofxIndustrialRobotArmData arms[5];	
 	ofxIndustrialRobotTool * tool;
 	
-	vector<ofxVec3f> armSpeedHistory;
+	vector<ofVec3f> armSpeedHistory;
 	vector<float> armAccHistory;
 	
 	float reverseHeadPercent;

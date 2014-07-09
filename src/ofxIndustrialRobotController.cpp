@@ -9,16 +9,16 @@ ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCor
 	plotter = _plotter;
 	
 	input = ofxIndustrialRobot::Slider;
-	targetPosition = ofxVec3f();
-	targetDir = ofxVec3f(0.0, -1.0, 0.0);
-	lastTargetPosition = ofxVec3f();
+	targetPosition = ofVec3f();
+	targetDir = ofVec3f(0.0, -1.0, 0.0);
+	lastTargetPosition = ofVec3f();
 	helper->data->reverseHeadPercent = 1.0;
 	helper->data->reverseHeadPercentGoal = 1.0;
 	helper->data->reverseHeadPercentTmp = 1.0;
-	gravityTarget = ofxVec3f();
-	gravityV = ofxVec3f();
-	gravityVDir = ofxVec3f();
-	gravityTargetDir = ofxVec3f();
+	gravityTarget = ofVec3f();
+	gravityV = ofVec3f();
+	gravityVDir = ofVec3f();
+	gravityTargetDir = ofVec3f();
 	gravityMaxSpeed = 0.0;
 	gravityForce = 1.0;
 	mode = 0;
@@ -38,8 +38,8 @@ ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCor
 void ofxIndustrialRobotController::setInput(int _input){
 	input = _input;
 	if(input == ofxIndustrialRobot::Gravity){
-		gravityV = ofxVec3f(0.0,0.0,0.0);
-		gravityVDir = ofxVec3f(0.0,0.0,0.0);
+		gravityV = ofVec3f(0.0,0.0,0.0);
+		gravityVDir = ofVec3f(0.0,0.0,0.0);
 		gravityTarget = targetPosition;
 		gravityTargetDir = targetDir;
 		
@@ -67,8 +67,8 @@ void ofxIndustrialRobotController::gotoResetPosition(){
 	targetPosition = helper->getEndPosition(5);
 	targetDir = helper->getTargetDir();
 	
-	gravityV = ofxVec3f(0.0,0.0,0.0);
-	gravityVDir = ofxVec3f(0.0,0.0,0.0);
+	gravityV = ofVec3f(0.0,0.0,0.0);
+	gravityVDir = ofVec3f(0.0,0.0,0.0);
 	gravityTarget = targetPosition;
 	gravityTargetDir = targetDir;
 	
@@ -115,8 +115,8 @@ void ofxIndustrialRobotController::step(float framerate){
 					setHandToPosition(targetPosition,  targetDir,helper->data->reverseHeadPercent, axis4variant);			
 				} else if(changingVariant2){
 					//We just finished changing variant2, do the reset of it, and continue the code
-					gravityV = ofxVec3f();
-					gravityVDir = ofxVec3f();
+					gravityV = ofVec3f();
+					gravityVDir = ofVec3f();
 					changingVariant2 = false;
 				}
 				 */
@@ -181,8 +181,8 @@ void ofxIndustrialRobotController::step(float framerate){
 						helper->data->reverseHeadPercent = helper->data->reverseHeadPercentGoal;
 						targetPosition = helper->getEndPosition(5);
 						targetDir = helper->getTargetDir();
-						gravityV = ofxVec3f();
-						gravityVDir = ofxVec3f();
+						gravityV = ofVec3f();
+						gravityVDir = ofVec3f();
 					}
 					
 				}
@@ -237,7 +237,7 @@ void ofxIndustrialRobotController::step(float framerate){
 			getArmRotations(gravityTarget, gravityTargetDir, helper->data->reverseHeadPercentGoal, rotations, false);
 			int numZones = (rotations[0]-helper->data->arms[0].rotation)/(360.0/NUMBER_ZONES);
 			//	cout<<numZones<<"  curRot: "<<(helper->data->arms[0].rotation) <<" wanted rot: "<< rotations[0]<<endl;
-			ofxVec3f gTarget, gDir;
+			ofVec3f gTarget, gDir;
 			if(abs(numZones)>6 || (inZoneSafetyMode && abs(numZones)>1 )){
 
 				//Safe zone mode
@@ -370,7 +370,7 @@ void ofxIndustrialRobotController::step(float framerate){
 				mode = -1;
 				if(curAcc < 0){
 					mode = 0;
-					gravityA= ofxVec3f();
+					gravityA= ofVec3f();
 				}
 			}
 			if(distanceAtBrake >= goalDist){
@@ -382,8 +382,8 @@ void ofxIndustrialRobotController::step(float framerate){
 			
 			if(goalDist < 0.2){
 				targetPosition = gTarget;
-				gravityA = ofxVec3f();
-				gravityV = ofxVec3f();
+				gravityA = ofVec3f();
+				gravityV = ofVec3f();
 			} else {
 				gravityA += (gTarget - targetPosition).normalized() * a * (float)mode;
 			}
@@ -480,31 +480,31 @@ void ofxIndustrialRobotController::step(float framerate){
 	vTarget = targetPosition - lastTargetPosition;
 	vTarget *= framerate;
 	if(lastTargetPosition.length() == 0){
-		vTarget = 0;
+		vTarget.set(0,0,0);
 	}
 	data->armSpeedHistory.push_back(vTarget*6);
 	
 	
 }
 
-bool ofxIndustrialRobotController::getArmRotations(ofxVec3f toolEnd, ofxVec3f dir, float variant, float* ret,  bool limitMotors,float variant2){
-	ofxVec3f toolStart = toolEnd - dir.normalized()*data->tool->l;
-	ofxVec3f dist = toolStart - helper->getEndPosition(0);
+bool ofxIndustrialRobotController::getArmRotations(ofVec3f toolEnd, ofVec3f dir, float variant, float* ret,  bool limitMotors,float variant2){
+	ofVec3f toolStart = toolEnd - dir.normalized()*data->tool->l;
+	ofVec3f dist = toolStart - helper->getEndPosition(0);
 	double a = atan2(toolStart.x,toolStart.z)-HALF_PI;
 	if(a < -PI)
 		a += TWO_PI;
-	ofxVec3f toolStartRotated = toolStart.getRotatedRad(-a, ofxVec3f(0.0,1.0,0.0));
-	ofxVec3f dirRotated = dir.getRotatedRad(-a, ofxVec3f(0.0,1.0,0.0));
+	ofVec3f toolStartRotated = toolStart.getRotatedRad(-a, ofVec3f(0.0,1.0,0.0));
+	ofVec3f dirRotated = dir.getRotatedRad(-a, ofVec3f(0.0,1.0,0.0));
 	
 	double a1;
 	a1 = atan2(dirRotated.y,dirRotated.x) - HALF_PI + variant*PI;
-	ofxVec3f h = -ofxVec3f(cos(a1), sin(a1))*(data->arms[3].length+data->arms[4].length + data->tool->h/2.0);
+	ofVec3f h = -ofVec3f(cos(a1), sin(a1))*(data->arms[3].length+data->arms[4].length + data->tool->h/2.0);
 	
-	dirRotated = dirRotated.getRotatedRad(HALF_PI - (a1) + variant*PI, ofxVec3f(0.0,0.0,1.0));
+	dirRotated = dirRotated.getRotatedRad(HALF_PI - (a1) + variant*PI, ofVec3f(0.0,0.0,1.0));
 	
 	double a2;
 	a2 =  (atan2(dirRotated.x,dirRotated.z)-HALF_PI - variant*PI) * (1.0 + variant*-2.0)-TWO_PI*variant;
-	ofxVec3f armPosition = toolStart + h.getRotatedRad(a, ofxVec3f(0.0,1.0,0.0));
+	ofVec3f armPosition = toolStart + h.getRotatedRad(a, ofVec3f(0.0,1.0,0.0));
 	
 	
 	float ret2[5]; 
@@ -516,7 +516,7 @@ bool ofxIndustrialRobotController::getArmRotations(ofxVec3f toolEnd, ofxVec3f di
 	return ok;
 }
 
-bool ofxIndustrialRobotController::getArmRotations2(ofxVec3f position, double rotation1, double rotation2,  float* ret,  bool limitMotors,float variant2){
+bool ofxIndustrialRobotController::getArmRotations2(ofVec3f position, double rotation1, double rotation2,  float* ret,  bool limitMotors,float variant2){
 	double a = atan2(position.x,position.z)-HALF_PI;
 	if(a < 0)
 		a += TWO_PI;
@@ -528,9 +528,9 @@ bool ofxIndustrialRobotController::getArmRotations2(ofxVec3f position, double ro
 		position -= (position-helper->getEndPosition(0)).normalized()*((float)(position-helper->getEndPosition(0)).length()-getMaxToolDistance()+0.001);
 	}
 	
-	ofxVec3f rotatedTarget = position.getRotatedRad(-a, ofxVec3f(0.0,1.0,0.0));
+	ofVec3f rotatedTarget = position.getRotatedRad(-a, ofVec3f(0.0,1.0,0.0));
 	
-	ofxVec3f rotatedStart = ofxVec3f(0.0,1.0,0.0)* data->arms[0].length - data->arms[0].offset.rotated(90, ofxVec3f(0,0,1)) ;
+	ofVec3f rotatedStart = ofVec3f(0.0,1.0,0.0)* data->arms[0].length - data->arms[0].offset.rotated(90, ofVec3f(0,0,1)) ;
 	
 	float b = sqrt((rotatedTarget.x-rotatedStart.x)*(rotatedTarget.x-rotatedStart.x) + (rotatedTarget.y-rotatedStart.y)*(rotatedTarget.y-rotatedStart.y));
 	
@@ -606,7 +606,7 @@ bool ofxIndustrialRobotController::getArmRotations2(ofxVec3f position, double ro
 }
 
 
-bool ofxIndustrialRobotController::legalPosition(ofxVec3f toolEnd, ofxVec3f dir, float variant,float variant2){
+bool ofxIndustrialRobotController::legalPosition(ofVec3f toolEnd, ofVec3f dir, float variant,float variant2){
 	float b[5];
 	if(variant2 == -1){
 		bool ok= getArmRotations(toolEnd, dir, variant, b, true, 0.0);
@@ -620,7 +620,7 @@ bool ofxIndustrialRobotController::legalPosition(ofxVec3f toolEnd, ofxVec3f dir,
 
 
 
-void ofxIndustrialRobotController::setHandToPosition(ofxVec3f toolEnd, ofxVec3f dir, float variant,float variant2){	
+void ofxIndustrialRobotController::setHandToPosition(ofVec3f toolEnd, ofVec3f dir, float variant,float variant2){	
 	//	cout<<variant<<endl;
 	float b[5];
 	if(variant == -1){
@@ -649,12 +649,12 @@ float ofxIndustrialRobotController::getMaxToolDistance(){
 	float r[5];
 	r[0] = 0;
 	r[1] = converter->getMaxRotation(1, r);
-	ofxVec3f v1 = ofxVec3f(data->arms[1].length,0,0);
-	ofxVec3f v2 = ofxVec3f(data->arms[2].length,0,0).rotated(converter->getMinRotation(2, r),ofxVec3f(0,0,1));
+	ofVec3f v1 = ofVec3f(data->arms[1].length,0,0);
+	ofVec3f v2 = ofVec3f(data->arms[2].length,0,0).rotated(converter->getMinRotation(2, r),ofVec3f(0,0,1));
 	return (v1+v2).length();
 }
 
-bool ofxIndustrialRobotController::addCue(float speed, ofxVec3f target, ofxVec3f dir,  bool cubicSpline,  bool endPause,  bool endInZeroSpeed){
+bool ofxIndustrialRobotController::addCue(float speed, ofVec3f target, ofVec3f dir,  bool cubicSpline,  bool endPause,  bool endInZeroSpeed){
 	if(legalPosition(target,  dir, 1.0) || legalPosition(target,  dir, 0.0)){
 		timeline->cues.push_back(new ofxIndustrialRobotPositionCue(speed, target, dir, cubicSpline, endPause,endInZeroSpeed));
 		return true;
@@ -662,7 +662,7 @@ bool ofxIndustrialRobotController::addCue(float speed, ofxVec3f target, ofxVec3f
 	
 }
 
-void ofxIndustrialRobotController::mousePressed(ofxVec3f target){
+void ofxIndustrialRobotController::mousePressed(ofVec3f target){
 	if(input == ofxIndustrialRobot::Timeline){
 		if(addCue(100, target, targetDir)){
 			cout<<"Added "<<target.x<<", "<<target.y<<", "<<target.z<<endl;

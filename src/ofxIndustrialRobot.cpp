@@ -79,7 +79,7 @@ void ofxIndustrialRobot::gotoStartPosition(){
 	
 }
 
-bool ofxIndustrialRobot::isLegalTarget(ofxVec3f target, ofxVec3f dir, ofxIndustrialRobotDefines::HandVariant variant, bool lock){
+bool ofxIndustrialRobot::isLegalTarget(ofVec3f target, ofVec3f dir, ofxIndustrialRobotDefines::HandVariant variant, bool lock){
 	bool ok = false;
 	if(!lock || thread.lock()){
 		if(variant == ofxIndustrialRobotDefines::Auto){			
@@ -102,7 +102,7 @@ bool ofxIndustrialRobot::isLegalTarget(ofxVec3f target, ofxVec3f dir, ofxIndustr
 	return ok;
 }
 
-bool ofxIndustrialRobot::setGravityTarget(ofxVec3f target, ofxVec3f dir, float force, float maxSpeed, ofxIndustrialRobotDefines::HandVariant variant, bool lock){
+bool ofxIndustrialRobot::setGravityTarget(ofVec3f target, ofVec3f dir, float force, float maxSpeed, ofxIndustrialRobotDefines::HandVariant variant, bool lock){
 	bool ret;
 	if(!lock || thread.lock()){
 		bool ok = false;
@@ -135,16 +135,16 @@ bool ofxIndustrialRobot::setGravityTarget(ofxVec3f target, ofxVec3f dir, float f
 	}
 	return ret;
 }
-ofxVec3f ofxIndustrialRobot::getCurrentTarget(bool lock){
-	ofxVec3f ret;
+ofVec3f ofxIndustrialRobot::getCurrentTarget(bool lock){
+	ofVec3f ret;
 	if(!lock || thread.lock()){
 		ret = thread.controller->targetPosition;
 		if(lock) thread.unlock();
 	}
 	return ret;
 }
-ofxVec3f ofxIndustrialRobot::getCurrentDir(bool lock){
-	ofxVec3f ret;
+ofVec3f ofxIndustrialRobot::getCurrentDir(bool lock){
+	ofVec3f ret;
 	if(!lock || thread.lock()){
 		ret = thread.controller->targetDir.normalized();
 		if(lock) thread.unlock();
@@ -152,16 +152,16 @@ ofxVec3f ofxIndustrialRobot::getCurrentDir(bool lock){
 	return ret;
 }
 
-ofxVec3f ofxIndustrialRobot::getCurrentGravityTarget(bool lock){
-	ofxVec3f ret;
+ofVec3f ofxIndustrialRobot::getCurrentGravityTarget(bool lock){
+	ofVec3f ret;
 	if(!lock || thread.lock()){
 		ret = thread.controller->gravityTarget;
 		if(lock) thread.unlock();
 	}
 	return ret;
 }
-ofxVec3f ofxIndustrialRobot::getCurrentGravityDir(bool lock){
-	ofxVec3f ret;
+ofVec3f ofxIndustrialRobot::getCurrentGravityDir(bool lock){
+	ofVec3f ret;
 	if(!lock || thread.lock()){
 		ret = thread.controller->gravityTargetDir;
 		if(lock) thread.unlock();
@@ -171,7 +171,7 @@ ofxVec3f ofxIndustrialRobot::getCurrentGravityDir(bool lock){
 
 
 
-bool ofxIndustrialRobot::addPositionCue(float speed, ofxVec3f target, ofxVec3f dir, bool cubicSpline, bool endPause, bool endInZeroSpeed,bool lock){
+bool ofxIndustrialRobot::addPositionCue(float speed, ofVec3f target, ofVec3f dir, bool cubicSpline, bool endPause, bool endInZeroSpeed,bool lock){
 	bool ret;
 	if(!lock || thread.lock()){
 		ret = true;
@@ -219,23 +219,24 @@ void ofxIndustrialRobot::setInput(Input input){
 //---
 
 
-ofxVec3f ofxIndustrialRobot::getDistanceToPointv(ofxVec3f p,bool lock){
+ofVec3f ofxIndustrialRobot::getDistanceToPointv(ofVec3f p,bool lock){
 	if(!lock || thread.lock()){
-		ofxVec3f v = thread.controller->targetPosition; 
+		ofVec3f v = thread.controller->targetPosition; 
 		if(lock) thread.unlock();
 		return p - v;	
 	} else {
-		return NULL;	
+        cout<< "JOHAN HAS BEEN HERE - Might be a problem";
+		return ofVec3f(0,0,0); // JOHAN: WARNING may be a problem this does not return NULL
 	}
 	
 }
-float ofxIndustrialRobot::getDistanceToPointf(ofxVec3f p,bool lock){
+float ofxIndustrialRobot::getDistanceToPointf(ofVec3f p,bool lock){
 	return getDistanceToPointv(p,lock).length();
 }
 
-ofxVec3f ofxIndustrialRobot::getDistanceToGravityTargetv(bool lock){
+ofVec3f ofxIndustrialRobot::getDistanceToGravityTargetv(bool lock){
 	if(!lock || thread.lock()){
-		ofxVec3f v = thread.controller->gravityTarget; 
+		ofVec3f v = thread.controller->gravityTarget; 
 		if(lock) thread.unlock();
 		
 		return getDistanceToPointv(v);
@@ -321,8 +322,8 @@ bool ofxIndustrialRobot::isRobotFlagsReady(){
 bool ofxIndustrialRobot::isRobotDirReady(double margin, bool lock){
 	bool ret = false;
 	if(!lock || thread.lock()){
-		ofxVec3f v = thread.controller->gravityTargetDir;
-		ofxVec3f v2 = thread.controller->targetDir;
+		ofVec3f v = thread.controller->gravityTargetDir;
+		ofVec3f v2 = thread.controller->targetDir;
 		v.normalize();
 		v2.normalize();
 		if(lock) thread.unlock();
@@ -359,8 +360,8 @@ bool ofxIndustrialRobot::isRobotVariantReady(bool lock){
 bool ofxIndustrialRobot::isRobotPositionReady(float radius,bool lock){
 	bool ret = false;
 	if(!lock || thread.lock()){
-		ofxVec3f v = thread.controller->gravityTarget;
-		ofxVec3f v2 = thread.controller->targetPosition;
+		ofVec3f v = thread.controller->gravityTarget;
+		ofVec3f v2 = thread.controller->targetPosition;
 		if(lock) thread.unlock();
 		if((v-v2).length() < radius){
 			ret = true;	

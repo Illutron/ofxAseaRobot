@@ -1,8 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxThread.h"
-#include "ofxVectorMath.h"
 
 #include "ofxIndustrialRobotController.h"
 #include "ofxIndustrialRobotTimeline.h"
@@ -10,7 +8,7 @@
 #include "ofxIndustrialRobotMotorConverter.h"
 #include "ofxIndustrialRobotPlotter.h"
 
-class ofxIndustrialRobotThread : public ofxThread {
+class ofxIndustrialRobotThread : public ofThread {
 public:
 	float framerate;
 	int lastTimeMillist;

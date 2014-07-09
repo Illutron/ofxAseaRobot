@@ -34,7 +34,6 @@
 
 
 #include "ofMain.h"
-#include "ofxVectorMath.h"
 
 #include "ofxMSASplineInterpolationTypes.h"
 

@@ -1,7 +1,6 @@
 #ifndef _INDUSTRIAL_ROBOT_DATA
 #define _INDUSTRIAL_ROBOT_DATA
 
-#include "ofxVectorMath.h"
 #include "ofxIndustrialRobotCoreData.h"
 #include "ofxIndustrialRobotArmHelper.h"
 #include "ofxIndustrialRobotTimeline.h"
@@ -24,10 +23,10 @@ public:
 	
 	float time;
 	
-	ofxVec3f targetPosition, lastTargetPosition;
-	ofxVec3f targetDir;
+	ofVec3f targetPosition, lastTargetPosition;
+	ofVec3f targetDir;
 	
-	ofxVec3f vTarget;
+	ofVec3f vTarget;
 	float getMaxToolDistance();
 	
 	int input;
@@ -40,30 +39,30 @@ public:
 	ofxIndustrialRobotMotorConverter * converter;
 
 
-	void setHandToPosition(ofxVec3f position, ofxVec3f dir,  float variant = -1.0, float variant2 = 0.0);
+	void setHandToPosition(ofVec3f position, ofVec3f dir,  float variant = -1.0, float variant2 = 0.0);
 	
-	bool legalPosition(ofxVec3f position, ofxVec3f dir, float variant= 0.0, float variant2 = -1.0);
+	bool legalPosition(ofVec3f position, ofVec3f dir, float variant= 0.0, float variant2 = -1.0);
 	
-	bool getArmRotations(ofxVec3f toolEnd, ofxVec3f dir, float variant, float* ret, bool limitMotors = true, float variant2 = 0.0);
-	bool getArmRotations2(ofxVec3f position, double rotation1, double rotation2, float* ret, bool limitMotors = true, float variant2 = 0.0);
+	bool getArmRotations(ofVec3f toolEnd, ofVec3f dir, float variant, float* ret, bool limitMotors = true, float variant2 = 0.0);
+	bool getArmRotations2(ofVec3f position, double rotation1, double rotation2, float* ret, bool limitMotors = true, float variant2 = 0.0);
 
 	void gotoResetPosition();
 	
-	bool addCue(float speed, ofxVec3f target, ofxVec3f dir, bool cubicSpline = true,  bool endPause=false, bool endInZeroSpeed=false);
+	bool addCue(float speed, ofVec3f target, ofVec3f dir, bool cubicSpline = true,  bool endPause=false, bool endInZeroSpeed=false);
 
-//	float* calculateArmToBase(ofxVec3f position, double rotation1, double rotation2);
-//	float* calculateHandToArm(ofxVec3f position, ofxVec3f dir);
+//	float* calculateArmToBase(ofVec3f position, double rotation1, double rotation2);
+//	float* calculateHandToArm(ofVec3f position, ofVec3f dir);
 	
-	void mousePressed(ofxVec3f target);
+	void mousePressed(ofVec3f target);
 	
 	void setInput(int _input);
 	
 	ofxIndustrialRobotDefines::HandVariant variant;
 	
 	//Gravity
-	ofxVec3f gravityTarget, gravityTargetDir;
-	ofxVec3f gravityV, gravityVDir;
-		ofxVec3f gravityA, gravityADir;
+	ofVec3f gravityTarget, gravityTargetDir;
+	ofVec3f gravityV, gravityVDir;
+		ofVec3f gravityA, gravityADir;
 	float gravityDirV;
 	int mode;
 	float gravityForce, gravityMaxSpeed;

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "ofxVectorMath.h"
+#include "ofMain.h"
 
 class ofxIndustrialRobotTool {
 public:
-	ofxIndustrialRobotTool(ofxVec3f _dir, float _l, float _w, float _h);
-	ofxVec3f getRotation();
+	ofxIndustrialRobotTool(ofVec3f _dir, float _l, float _w, float _h);
+	ofVec3f getRotation();
 	
-	ofxVec3f dir;
+	ofVec3f dir;
 	float l, w, h;
 };

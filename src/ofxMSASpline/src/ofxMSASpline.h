@@ -37,8 +37,8 @@ Usage:
 // OR use preset classes:
  
 	ofxMSASpline1D				mySpline1D;		// create spline of floats (1D)
-	ofxMSASpline2D				mySpline2D;		// create spline of ofxVec2f (2D)
-	ofxMSASpline3D				mySpline3D;		// create spline of ofxVec3f (3D)
+	ofxMSASpline2D				mySpline2D;		// create spline of ofVec2f (2D)
+	ofxMSASpline3D				mySpline3D;		// create spline of ofVec3f (3D)
  
 
 // splines wrap basic functionality of stl::vector:

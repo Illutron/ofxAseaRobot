@@ -3,8 +3,7 @@
 
 
 ofxIndustrialRobotSerial::ofxIndustrialRobotSerial(){
-	serial.setVerbose(false);
-	connected = serial.setup("/dev/tty.usbserial-A7007bv1", 115200);	
+	connected = serial.setup("/dev/tty.usbserial-A7007bv1", 115200);
 	
 	for(int i=0;i<5;i++){
 		inValues[i] = 0;
@@ -27,9 +26,6 @@ ofxIndustrialRobotSerial::ofxIndustrialRobotSerial(){
 void ofxIndustrialRobotSerial::start(){
 	startThread(true, false);   // blocking, verbose
 }
-
-
-
 
 void ofxIndustrialRobotSerial::sendValues(){
 	bool ok = true;

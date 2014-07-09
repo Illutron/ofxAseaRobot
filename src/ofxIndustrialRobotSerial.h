@@ -1,6 +1,5 @@
 #pragma once
 #include "ofMain.h"
-#include "ofxThread.h"
 #include "ofxIndustrialRobotMotorConverter.h"
 #define DATAGRAM_LENGTH 24
 
@@ -38,7 +37,7 @@
     7: Hardware error (panic)
  */
  
-class ofxIndustrialRobotSerial : public ofxThread{
+class ofxIndustrialRobotSerial : public ofThread{
 public:
 	ofxIndustrialRobotSerial();
 

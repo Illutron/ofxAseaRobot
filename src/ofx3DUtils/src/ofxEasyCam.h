@@ -53,17 +53,17 @@ public:
 		posCoord.z = opposite / tanf(theta);
 	}
 	void place() {
-		ofxVec3f relx = getDir().getCrossed(getUp()).normalize();
-		ofxVec3f rely = getDir().getCrossed(relx).normalize();
+		ofVec3f relx = getDir().getCrossed(getUp()).normalize();
+		ofVec3f rely = getDir().getCrossed(relx).normalize();
 		if(mouseButton == 0) {
-			ofxVec3f rot = relx * dmouseY + rely * -dmouseX;
+			ofVec3f rot = relx * dmouseY + rely * -dmouseX;
 			orbitAround(getEye(), rot, rot.length() * orbitSpeed);
 		} else if(mouseButton == 2) {
-			ofxVec3f offset = getDir().normalize() * (zoomSpeed * dmouseY);
+			ofVec3f offset = getDir().normalize() * (zoomSpeed * dmouseY);
 			eye(getEye() - offset);
 			moveGlobal(offset);
 		} else if(mouseButton == 1) {
-			ofxVec3f offset =
+			ofVec3f offset =
 				(relx * dmouseX * panSpeed) +
 				(rely * dmouseY * panSpeed);
 			moveGlobal(offset);

@@ -1,10 +1,9 @@
 #include "ofxIndustrialRobotTimeline.h"
-#include "ofxVectorMath.h"
 
 ofxIndustrialRobotTimeline::ofxIndustrialRobotTimeline(){
 	clear();
 	isPaused = false;
-	cues.push_back(new ofxIndustrialRobotPositionCue(200, ofxVec3f(1269.0,800.824,0.0), ofxVec3f(0.0,-1.0,0)));
+	cues.push_back(new ofxIndustrialRobotPositionCue(200, ofVec3f(1269.0,800.824,0.0), ofVec3f(0.0,-1.0,0)));
 };
 
 void ofxIndustrialRobotTimeline::clear(){
@@ -33,17 +32,17 @@ float fadeDistance(float start, float stop, float time){
 	return 0.5*a*t*t+start*t;
 }
 
-float calculateDistanceInSpline(ofxMSASpline3D spline, float start, float end, int resolution){
+float calculateDistanceInSpline(Interpolator3D spline, float start, float end, int resolution){
 	float ret = 0;
 	float pDist = (float)end-start;
 	if(start < 0 || start > 1.0)
 		return NULL;
-	ofxVec3f p1 = spline.sampleAt(start);				
+	ofVec3f p1 = spline.sampleAt(start);				
 	for(int i=1 ; i<=resolution ; i++){
 		float s = start+(float)pDist*i/resolution;
 		if(s < 0 || s > 1.0)
 			return NULL;
-		ofxVec3f p2 = spline.sampleAt(s);
+		ofVec3f p2 = spline.sampleAt(s);
 		ret += (p2-p1).length();
 		p1 = p2;
 	}	
@@ -60,7 +59,7 @@ void ofxIndustrialRobotTimeline::pause(){
 
 
 
-void ofxIndustrialRobotTimeline::step(ofxVec3f v, float framerate){
+void ofxIndustrialRobotTimeline::step(ofVec3f v, float framerate){
 	if(framerate > 0){ //we have to check so we don't get divide by zero
 		float dt = 1.0 / framerate;
 		if(!isPaused){
@@ -84,12 +83,13 @@ void ofxIndustrialRobotTimeline::step(ofxVec3f v, float framerate){
 				
 				//Generer kurven
 				if(numberPositionCues()-splineStart < 4){
-					mode = OFX_MSA_SPLINE_LINEAR;
+					mode = kInterpolationLinear;
+                    //mode = OFX_MSA_SPLINE_LINEAR;
 				} else {
 					if(getPositionCue(currentCue+1)->isCubicSpline)
-						mode = OFX_MSA_SPLINE_CUBIC;
+						mode = kInterpolationCubic;
 					else 
-						mode = OFX_MSA_SPLINE_LINEAR;
+						mode = kInterpolationLinear;
 				}
 				generateSpline(splineStart,0); //every time we are in a cue point we can generate a new spline (with the new points eventually added)
 				atSplineEnd = false;
@@ -157,11 +157,11 @@ void ofxIndustrialRobotTimeline::step(ofxVec3f v, float framerate){
 				
 				float l = 0;
 				float dSt = 0;
-				ofxVec3f p1 = spline.sampleAt(splineTime);
+				ofVec3f p1 = spline.sampleAt(splineTime);
 				while(l < reql && atSplineEnd == false){
 					dSt += 0.000001;
 					if(dSt + splineTime <= 1.0 ){
-						ofxVec3f p2 = spline.sampleAt(splineTime+dSt);
+						ofVec3f p2 = spline.sampleAt(splineTime+dSt);
 						l += (p2-p1).length();
 						p1 = p2;
 					} else {
@@ -184,32 +184,32 @@ void ofxIndustrialRobotTimeline::step(ofxVec3f v, float framerate){
 	
 }
 
-ofxVec3f ofxIndustrialRobotTimeline::getPosition(){
+ofVec3f ofxIndustrialRobotTimeline::getPosition(){
 	if(numberPositionCues() == 1){
 		return getPositionCue(0)->position;
 	} else if(numberPositionCues() == 0){
-		return ofxVec3f(1000,700,0);	
+		return ofVec3f(1000,700,0);	
 	} else {
 		return 	spline.sampleAt(splineTime);
 	}
 }
 
-ofxVec3f ofxIndustrialRobotTimeline::getHandPosition(){
+ofVec3f ofxIndustrialRobotTimeline::getHandPosition(){
 	if(numberPositionCues() == 1){
 		return getPositionCue(0)->hand;
 	} else if(numberPositionCues() == 0){
-		return ofxVec3f(1,0,0);	
+		return ofVec3f(1,0,0);	
 	} else {
 		return 	handSpline.sampleAt(splineTime);
 	}
 }
 
-ofxVec3f ofxIndustrialRobotTimeline::getNextCuePosition(){
+ofVec3f ofxIndustrialRobotTimeline::getNextCuePosition(){
 	return getPositionCue(currentCue)->position;
 	
 	
 }
-ofxVec3f ofxIndustrialRobotTimeline::getNextCueHandPosition(){
+ofVec3f ofxIndustrialRobotTimeline::getNextCueHandPosition(){
 	return getPositionCue(currentCue)->hand;
 }
 
@@ -250,8 +250,9 @@ ofxIndustrialRobotPositionCue* ofxIndustrialRobotTimeline::getPositionCue(int n)
 void ofxIndustrialRobotTimeline::generateSpline(int first, int last){
 	spline.clear();
 	handSpline.clear();
-	spline.setInterpolation(mode);
-	handSpline.setInterpolation(mode);
+    // todo set interpolation mdoe after mode value
+	spline.setInterpolation(kInterpolationLinear);
+	handSpline.setInterpolation(kInterpolationLinear);
 	//spline.setInterpolation(OFX_MSA_SPLINE_LINEAR);
 	//spline.setUseDistance(true);
 	int n= numberPositionCues()-last;

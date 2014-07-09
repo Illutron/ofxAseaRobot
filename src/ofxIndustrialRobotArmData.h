@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ofxVectorMath.h"
+#include "ofMain.h"
 
 class ofxIndustrialRobotArmData {
 public:
@@ -10,6 +10,6 @@ public:
 	float minRotation;
 	float maxRotation;
 	float omax, omin;
-	ofxVec3f axis;  //rotation axis
-	ofxVec3f offset; //The offset added to the end of the arm. Has a length
+	ofVec3f axis;  //rotation axis
+	ofVec3f offset; //The offset added to the end of the arm. Has a length
 };

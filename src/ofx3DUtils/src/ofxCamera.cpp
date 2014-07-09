@@ -13,7 +13,7 @@ void ofxCamera::position(float x, float y, float z){
 	posCoord.y = y;
 	posCoord.z = z;
 }
-void ofxCamera::position(ofxVec3f _pos){
+void ofxCamera::position(ofVec3f _pos){
 	posCoord = _pos;
 }
 void ofxCamera::position(){
@@ -37,7 +37,7 @@ void ofxCamera::lerpPosition(float _targetX, float _targetY, float _targetZ, flo
 	posCoord.z += (_targetZ - posCoord.z) * _step;
 }
 
-void ofxCamera::lerpPosition(ofxVec3f target, float step){
+void ofxCamera::lerpPosition(ofVec3f target, float step){
 	lerpPosition(target.x, target.y, target.z, step);
 }
 
@@ -47,7 +47,7 @@ void ofxCamera::lerpEye(float _targetX, float _targetY, float _targetZ, float _s
 	eyeCoord.z += (_targetZ - eyeCoord.z) * _step;
 }
 
-void ofxCamera::lerpEye(ofxVec3f target, float step){
+void ofxCamera::lerpEye(ofVec3f target, float step){
 	lerpEye(target.x, target.y, target.z, step);
 }
 
@@ -57,7 +57,7 @@ void ofxCamera::eye(float x, float y, float z){
 	eyeCoord.z = z;
 }
 
-void ofxCamera::eye(ofxVec3f _pos){
+void ofxCamera::eye(ofVec3f _pos){
 	eyeCoord = _pos;
 }
 
@@ -80,7 +80,7 @@ void ofxCamera::up(float _nx, float _ny, float _nz){
 	upVec.z = _nz;
 }
 
-void ofxCamera::up(ofxVec3f _up){
+void ofxCamera::up(ofVec3f _up){
 	upVec = _up;
 }
 
@@ -147,11 +147,11 @@ void ofxCamera::remove(){
 
 
 void ofxCamera::moveLocal(float _x, float _y, float _z){
-	moveLocal(ofxVec3f(_x, _y, _z));
+	moveLocal(ofVec3f(_x, _y, _z));
 }
 
-void ofxCamera::moveLocal(ofxVec3f move){
-	ofxVec3f dir =  getDir().normalized();
+void ofxCamera::moveLocal(ofVec3f move){
+	ofVec3f dir =  getDir().normalized();
 	posCoord += dir.rescaled(move.z);
 	eyeCoord += dir.rescaled(move.z);
 
@@ -170,37 +170,37 @@ void ofxCamera::moveGlobal(float _x, float _y, float _z){
 	eyeCoord.y += _y;
 	eyeCoord.z += _z;
 }
-void ofxCamera::moveGlobal(ofxVec3f move){
+void ofxCamera::moveGlobal(ofVec3f move){
 	posCoord += move;
 	eyeCoord += move;
 }
 
-void ofxCamera::orbitAround(ofxVec3f target, ofxVec3f axis, float angle){
-	ofxVec3f r = posCoord-target;
+void ofxCamera::orbitAround(ofVec3f target, ofVec3f axis, float angle){
+	ofVec3f r = posCoord-target;
 	posCoord = target + r.rotated(angle, axis);
 }
 
-void ofxCamera::rotate(ofxVec3f axis, float angle){
-	ofxVec3f r = -posCoord+eyeCoord;
+void ofxCamera::rotate(ofVec3f axis, float angle){
+	ofVec3f r = -posCoord+eyeCoord;
 	eyeCoord = posCoord + r.rotated(angle, axis);
 }
 
 //
 //Getters
 //
-ofxVec3f ofxCamera::getDir(){
+ofVec3f ofxCamera::getDir(){
 	return eyeCoord-posCoord;
 }
 
-ofxVec3f ofxCamera::getPosition(){
+ofVec3f ofxCamera::getPosition(){
 	return posCoord;
 }
 
-ofxVec3f ofxCamera::getEye(){
+ofVec3f ofxCamera::getEye(){
 	return eyeCoord;
 }
 
-ofxVec3f ofxCamera::getUp(){
+ofVec3f ofxCamera::getUp(){
 	return upVec;
 }
 

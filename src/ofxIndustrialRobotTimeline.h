@@ -3,14 +3,15 @@
 
 #include "ofxIndustrialRobotCue.h"
 #include "ofxIndustrialRobotPositionCue.h"
-#include "ofxMSASpline.h"
+#include "MSAInterpolator.h"
 
+using namespace msa;
 
 class ofxIndustrialRobotTimeline{
 public:
-	
-	ofxMSASpline3D spline;
-	ofxMSASpline3D handSpline;
+	   
+	Interpolator3D spline;
+	Interpolator3D handSpline;
 	
 	float splineTime;
 	
@@ -22,12 +23,12 @@ public:
 	
 	unsigned long cueStartTime;
 	
-	void step(ofxVec3f v, float framerate);
-	ofxVec3f getPosition();
-	ofxVec3f getHandPosition();
+	void step(ofVec3f v, float framerate);
+	ofVec3f getPosition();
+	ofVec3f getHandPosition();
 
-	ofxVec3f getNextCuePosition();
-	ofxVec3f getNextCueHandPosition();
+	ofVec3f getNextCuePosition();
+	ofVec3f getNextCueHandPosition();
 	void clear();
 	
 	ofxIndustrialRobotTimeline();

@@ -8,11 +8,12 @@ ofxIndustrialRobotVisualizer::ofxIndustrialRobotVisualizer(ofxIndustrialRobotArm
 	timeline = _timeline;
 	plotter = _plotter;
 	
-	rotationSpeed = 0.3;	
-	camera.position(ofGetWidth()/2.0, ofGetHeight()/2.00+100, 800);
-	light1.specular(255, 255, 255);
+	rotationSpeed = 0.3;
+    
+	camera.setPosition(ofGetWidth()/2.0, ofGetHeight()/2.00+100, 800);
+    light1.setSpecularColor(ofFloatColor(1.0,1.0,1.0));
 	
-	
+	//sideView.mousePressed(<#int x#>, <#int y#>, <#int button#>)
 //	model.loadModel("/Users/jonas/Desktop/test2.3ds", 1.0);
 	
     //you can create as many rotations as you want
@@ -31,7 +32,7 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 	//Base
 	ofSetColor(0, 255, 255);	
 	glTranslated(0, -25, 0);
-	//ofxBox(ofxVec3f(0,25,0), ofxVec3f(200, 50, 200));	
+	//ofxBox(ofVec3f(0,25,0), ofVec3f(200, 50, 200));	
 	
 	//model.draw();
 	ofSetColor(255, 0, 0);
@@ -41,7 +42,7 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 
 //	model.draw();
 	glPopMatrix();
-	//	ofxSphere(ofxVec3f(0,0,0), ofxVec3f(200, 200, 200));
+	//	ofxSphere(ofVec3f(0,0,0), ofVec3f(200, 200, 200));
 	
 	glRotated(180, 0.0, 0.0, -1.0); 
 	glPushMatrix();
@@ -55,14 +56,19 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 	//Draw tool
 	ofSetColor(255, 0, 0);
 	float l = helper->getTool()->l; //The length of the tool
-	ofxVec3f rotation = helper->getTool()->getRotation();
+	ofVec3f rotation = helper->getTool()->getRotation();
 	glRotated(rotation.z, 0.0, 0.0, 1.0);
-	ofxBox(ofxVec3f(helper->getTool()->h/2.0,l/2,0), ofxVec3f(helper->getTool()->h, l, helper->getTool()->w), ofxVec3f(0.0, 0.0, 0.0));
-	//	ofxVec3f axis = helper->getAxis(i); //The axis the arm rotates around
-	//	ofxVec3f offset = helper->getOffset(i);
+    
+    ofDrawBox(helper->getTool()->h/2.0,l/2,0, helper->getTool()->h, l, helper->getTool()->w);
+    
+    
+	/*ofBox(ofVec3f(helper->getTool()->h/2.0,l/2,0), ofVec3f(helper->getTool()->h, l, helper->getTool()->w), ofVec3f(0.0, 0.0, 0.0));*/
+    
+	//	ofVec3f axis = helper->getAxis(i); //The axis the arm rotates around
+	//	ofVec3f offset = helper->getOffset(i);
 	//	glRotated(helper->getRotationAngle(i), axis.x, axis.y, axis.z); // Rotate it around the axis
 	//	glTranslated(0, l, 0);
-	//	ofxBox(ofxVec3f(0,-l/2.0,0), ofxVec3f(60, l, 60), ofxVec3f(0.0, 0.0, 0.0));
+	//	ofxBox(ofVec3f(0,-l/2.0,0), ofVec3f(60, l, 60), ofVec3f(0.0, 0.0, 0.0));
 	//	glTranslated(-offset.y, offset.x, offset.z);	
 	
 	glPopMatrix();
@@ -71,22 +77,29 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 	//Target
 	glRotated(180, 0.0, 1.0, 0.0); 
 	ofSetColor(255, 0, 0);
-	ofxSphere(controller->targetPosition, ofxVec3f(20, 20, 20));
+	
+    ofDrawSphere(controller->targetPosition.x, controller->targetPosition.y, controller->targetPosition.z, 20);
+    //ofxSphere(controller->targetPosition, ofVec3f(20, 20, 20));
 	glBegin(GL_LINE_STRIP);
 	glVertex3d(controller->targetPosition.x, controller->targetPosition.y, controller->targetPosition.z);
-	ofxVec3f temp = controller->targetPosition+ controller->targetDir*500.0;
+	ofVec3f temp = controller->targetPosition+ controller->targetDir*500.0;
 	glVertex3d(temp.x,temp.y, temp.z);
 	glEnd();
 	
 	glPushMatrix();
 	ofSetColor(0, 255, 0);
 	for(int i=0;i<timeline->numberPositionCues(); i++){
-		ofxVec3f vec = timeline->getPositionCue(i)->position;
-		ofxSphere(vec, ofxVec3f(10, 10, 10));	
+		ofVec3f vec = timeline->getPositionCue(i)->position;
+		
+        ofDrawSphere(vec.x, vec.y, vec.y, 10);
+        //ofxSphere(vec, ofVec3f(10, 10, 10));
 	}
-	timeline->spline.drawRaw(10, 5);
+    
+    drawInterpolatorRaw(timeline->spline,10,5);
+	//timeline->spline.drawInterpolatorRaw(10, 5);
 	ofSetColor(255, 255, 0, 100);
-	timeline->spline.drawSmooth(50, 0, 10);
+    drawInterpolatorSmooth(timeline->spline,50,0,10);
+	//timeline->spline.drawInterpolatorSmooth(50, 0, 10);
 	glLineWidth(1);
 	ofSetColor(255, 255, 255, 255);
 	ofFill();
@@ -101,10 +114,10 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 */
 	for(int i=0;i<plotter->lines.size();i++){
 		glBegin(GL_LINE_STRIP);
-		ofxVec3f x = (plotter->spaceDefinition[1]-plotter->spaceDefinition[0]).normalized();
-		ofxVec3f y = (plotter->spaceDefinition[2]-plotter->spaceDefinition[1]).normalized();
+		ofVec3f x = (plotter->spaceDefinition[1]-plotter->spaceDefinition[0]).normalized();
+		ofVec3f y = (plotter->spaceDefinition[2]-plotter->spaceDefinition[1]).normalized();
 		for(int u=0;u<plotter->lines[i].size();u++){
-			ofxVec3f point = x * plotter->lines[i][u].x + y * plotter->lines[i][u].y + plotter->spaceDefinition[0];
+			ofVec3f point = x * plotter->lines[i][u].x + y * plotter->lines[i][u].y + plotter->spaceDefinition[0];
 			glVertex3f(point.x,point.y,point.z);
 		}
 
@@ -117,8 +130,11 @@ void ofxIndustrialRobotVisualizer::drawGeneric(){
 }
 
 void ofxIndustrialRobotVisualizer::draw3d(int x, int y, int w, int h){	
-	//	camera.orbitAround(ofxVec3f(ofGetWidth()/2.0,ofGetHeight()/2.0,0), ofxVec3f(0.0,1.0,0.0), rotationSpeed);
-	light1.directionalLight(255, 255, 255, 0.0, 0.3, 1.0);
+	//	camera.orbitAround(ofVec3f(ofGetWidth()/2.0,ofGetHeight()/2.0,0), ofVec3f(0.0,1.0,0.0), rotationSpeed);
+	
+    light1.setDirectional();
+    //light1.directionalLight(255, 255, 255, 0.0, 0.3, 1.0);
+    
 	glPushMatrix();
 	glDisable(GL_DEPTH_TEST);
 	glTranslated(x, y, 0);
@@ -131,10 +147,12 @@ void ofxIndustrialRobotVisualizer::draw3d(int x, int y, int w, int h){
 	glEnable(GL_DEPTH_TEST);
 	glTranslated(0, 1000, -2500);
 	
-	ofxLightsOn();
+	ofEnableLighting();
 	ofFill();
 	ofSetColor(0, 255, 0);	
-	ofxSphere(ofGetWidth()/2.0, ofGetHeight()/2.0, 0, 500, 10, 500);
+	
+    ofEllipse(ofGetWidth()/2.0, ofGetHeight()/2.0, 0, 500, 10);
+    //ofxSphere(ofGetWidth()/2.0, ofGetHeight()/2.0, 0, 500, 10, 500);
 	ofSetColor(0, 255, 255);	
 	glTranslated(ofGetWidth()/2.0, ofGetHeight()/2.0, 0);
 	
@@ -148,7 +166,7 @@ void ofxIndustrialRobotVisualizer::draw3d(int x, int y, int w, int h){
 	
 	ofNoFill();
 	ofSetColor(255, 255, 255,255);
-	ofxLightsOff();
+	ofDisableLighting();
 	glPopMatrix();
 	ofRect(0, 0, w, h);
 	ofDrawBitmapString("Robot Visualizer", x+10, y+15);
@@ -156,21 +174,24 @@ void ofxIndustrialRobotVisualizer::draw3d(int x, int y, int w, int h){
 }
 
 
-void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){	
-	topView.setPosAndSize(x,y,w, h);
+void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){
+    
+    topView.setPosition(x, y);
+    topView.setSize(w, h);
+	//topView.setPosAndSize(x,y,w, h);
 	float aspect = (float)ofGetWidth()/ofGetHeight(); //1.333...
 	float aspect2 = (float)w/h; //1.0000
 	float mult = (float)aspect/aspect2; //Factor to multiply x coordinates with
 	float scale = 0.09; // Same as to zoom
-	ofxVec3f translate = ofxVec3f((ofGetWidth()/2.0)/mult, ofGetHeight()/2.0,0);
+	ofVec3f translate = ofVec3f((ofGetWidth()/2.0)/mult, ofGetHeight()/2.0,0);
 	
 	if(topView.click){
 		float cx = -(1.0- 2*((float)app->mouseX - x)/w);
 		float cy = 1.0- 2*((float)app->mouseY - y)/h;
 		float a1 = -atan2(cx,cy);
 		float a2 = atan2(controller->targetPosition.x,controller->targetPosition.z)-HALF_PI;
-		//		controller->targetPosition = ofxVec3f(((cx*ofGetWidth()/mult)/scale)/2.0, controller->targetPosition.y, (cy*ofGetHeight()/scale)/2.0);
-		ofxVec3f target = ofxVec3f((float)((cx*ofGetWidth()/mult)/scale)/2.0,(float) controller->targetPosition.y, -(float)(cy*ofGetHeight()/scale)/2.0);
+		//		controller->targetPosition = ofVec3f(((cx*ofGetWidth()/mult)/scale)/2.0, controller->targetPosition.y, (cy*ofGetHeight()/scale)/2.0);
+		ofVec3f target = ofVec3f((float)((cx*ofGetWidth()/mult)/scale)/2.0,(float) controller->targetPosition.y, -(float)(cy*ofGetHeight()/scale)/2.0);
 		controller->mousePressed(target);
 		topView.click = false;
 	}
@@ -191,7 +212,7 @@ void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){
 	ofFill();
 	ofSetColor(255, 255, 0);
 	
-	glScaled(1.0*mult, 1.0, 1.0);	
+	glScaled(1.0*mult, 1.0, 1.0);
 	glTranslated(0, -ofGetHeight(), 0);
 	
 	ofEnableAlphaBlending();
@@ -201,7 +222,7 @@ void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){
 	ofNoFill();
 	ofSetColor(255, 255, 255);
 	ofRect(0, 0, ofGetWidth()/mult, ofGetHeight());
-	ofSetRectMode(1);
+	ofSetRectMode(OF_RECTMODE_CENTER); //1
 	glTranslated(translate.x,translate.y, 0);
 	glScaled(scale, scale, scale);
 	
@@ -209,7 +230,7 @@ void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){
 	
 	drawGeneric();
 	
-	ofSetRectMode(0);
+	ofSetRectMode(OF_RECTMODE_CORNER); //0
 	
 	glViewport(0, 0, ofGetWidth(), ofGetHeight());
 	ofSetupScreen();
@@ -220,20 +241,22 @@ void ofxIndustrialRobotVisualizer::drawtop(int x, int y, int w, int h){
 }
 
 void ofxIndustrialRobotVisualizer::drawside(int x, int y, int w, int h){	
-	sideView.setPosAndSize(x,y,w, h);
+	
+    sideView.set(x,y,w,h);
+    //sideView.setPosAndSize(x,y,w, h);
 	
 	float aspect = (float)ofGetWidth()/ofGetHeight(); //1.333...
 	float aspect2 = (float)w/h; //1.0000
 	float mult = (float)aspect/aspect2; //Factor to multiply x coordinates with
 	float scale = 0.17; // Same as to zoom
-	ofxVec3f translate = ofxVec3f((ofGetWidth()/2.0)/mult-200, ofGetHeight()/2.0+200,0);
+	ofVec3f translate = ofVec3f((ofGetWidth()/2.0)/mult-200, ofGetHeight()/2.0+200,0);
 	
 	if(sideView.click){
 		float cx = ((float)app->mouseX - x)/w;
 		float cy = ((float)app->mouseY - y)/h;
 		float a = atan2(controller->targetPosition.x,controller->targetPosition.z)-HALF_PI;
-		ofxVec3f target = ofxVec3f((float)((cx*ofGetWidth()/(float)mult)-translate.x)/scale,(float) -((cy*ofGetHeight())-translate.y)/scale, 0.0);
-		target.rotateRad(a, ofxVec3f(0.0,1.0,0.0));
+		ofVec3f target = ofVec3f((float)((cx*ofGetWidth()/(float)mult)-translate.x)/scale,(float) -((cy*ofGetHeight())-translate.y)/scale, 0.0);
+		target.rotateRad(a, ofVec3f(0.0,1.0,0.0));
 		controller->mousePressed(target);
 		
 		sideView.click = false;
@@ -270,7 +293,7 @@ void ofxIndustrialRobotVisualizer::drawside(int x, int y, int w, int h){
 	ofNoFill();
 	ofSetColor(255, 255, 255);
 	ofRect(0, 0, ofGetWidth()/mult, ofGetHeight());
-	ofSetRectMode(1);
+	ofSetRectMode(OF_RECTMODE_CENTER);
 	
 	glTranslated(translate.x, translate.y, 0);
 	glScaled(scale, scale, scale);
@@ -278,7 +301,7 @@ void ofxIndustrialRobotVisualizer::drawside(int x, int y, int w, int h){
 			ofSetColor(0, 255, 0,255);
 /*	for(int i=0;i<3000;i+=100){
 		for(int u=0;u<3000;u+= 100){
-			if(controller->legalPosition(ofxVec3f(i,u,0), controller->targetDir,0.0) || controller->legalPosition(ofxVec3f(i,u,0), controller->targetDir,1.0))
+			if(controller->legalPosition(ofVec3f(i,u,0), controller->targetDir,0.0) || controller->legalPosition(ofVec3f(i,u,0), controller->targetDir,1.0))
 				ofRect(i, -u, 100, 100);
 		}
 	}*/
@@ -289,7 +312,7 @@ void ofxIndustrialRobotVisualizer::drawside(int x, int y, int w, int h){
 	ofSetColor(255, 255, 255);
 	ofLine(-1000, 0, 1000, 0);
 	ofLine(0,-1000, 0, 1000);
-	ofSetRectMode(0);	
+	ofSetRectMode(OF_RECTMODE_CORNER);
 	
 	glPopMatrix();	
 	
@@ -356,14 +379,30 @@ void ofxIndustrialRobotVisualizer::drawGraphs(int x, int y, int w, int h){
 
 void ofxIndustrialRobotVisualizer::drawArm(int i, int w, int h){
 	float l = helper->getLength(i); //The length of the arm
-	ofxVec3f axis = helper->getAxis(i); //The axis the arm rotates around
-	ofxVec3f offset = helper->getOffset(i);
+	ofVec3f axis = helper->getAxis(i); //The axis the arm rotates around
+	ofVec3f offset = helper->getOffset(i);
 	float r = helper->getRotationAngle(i);
 	glRotated(r, axis.x, axis.y, axis.z); // Rotate it around the axis
 	glTranslated(0, l, 0);
-	ofxBox(ofxVec3f(0,-l/2.0,0), ofxVec3f(w, l, h), ofxVec3f(0.0, 0.0, 0.0));
+    ofDrawBox(0,-l/2,0, w, l, h);
+	//ofxBox(ofVec3f(0,-l/2.0,0), ofVec3f(w, l, h), ofVec3f(0.0, 0.0, 0.0));
 	glTranslated(-offset.y, offset.x, offset.z);	
 }
+/*
+void ofxBox(ofxVec3f position, ofxVec3f size, ofxVec3f rotation){
+	if(boxList == 0) ofxCreateBoxList();
+	glPushMatrix();
+	glTranslatef(position.x, position.y, position.z);
+	glRotatef(rotation.x, 1.0f, 0.0f, 0.0f);
+	glRotatef(rotation.y, 0.0f, 1.0f, 0.0f);
+	glRotatef(rotation.z, 0.0f, 0.0f, 1.0f);
+	glScalef(size.x, size.y, size.z);
+	glCallList(boxList);
+	glPopMatrix();
+}
+ https://github.com/lian/ofx-dev/blob/master/addons/ofx3dutils/ofx3DGraphics.cpp
+ 
+ */
 
 void ofxIndustrialRobotVisualizer::drawArm0(){
 	ofSetColor(255, 0, 0);

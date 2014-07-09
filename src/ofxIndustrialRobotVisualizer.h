@@ -1,17 +1,14 @@
-#ifndef _INDUSTRIAL_ROBOT_VISUALIZER
-#define _INDUSTRIAL_ROBOT_VISUALIZER
+#pragma once
 
 #include "ofMain.h"
 #include "ofConstants.h"
-
-#include "ofxVectorMath.h"
-#include "ofx3DUtils.h"
 
 #include "ofxIndustrialRobotArmHelper.h"
 #include "ofxIndustrialRobotController.h"
 #include "ofxIndustrialRobotTimeline.h"
 #include "ofxMSAInteractiveObject.h"
 #include "ofx3DModelLoader.h"
+
 
 class View : public ofxMSAInteractiveObject {
 public:
@@ -26,6 +23,7 @@ public:
 	virtual void onPress(int x, int y, int button) {
 		click = true;
 		release = false;
+     
 	}
 	
 	virtual void onRelease(int x, int y, int button) {
@@ -62,11 +60,9 @@ public:
 	
 	float rotationSpeed;
 	
-	ofxCamera camera;
-	ofxLight light1;
+	ofCamera camera;
+	ofLight light1;
 	
 	ofx3DModelLoader model;
 	
 };
-
-#endif

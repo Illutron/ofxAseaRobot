@@ -3,9 +3,6 @@
 
 #include "ofConstants.h"
 
-#include "ofxVectorMath.h"
-#include "ofxThread.h"
-
 #include "ofxIndustrialRobotThread.h"
 
 #include "ofxIndustrialRobotVisualizer.h"
@@ -29,26 +26,26 @@ public:
 	ofxIndustrialRobotVisualizer * visualizer;
 	ofBaseApp * app;
 	
-	bool addPositionCue(float speed, ofxVec3f target, ofxVec3f dir, bool cubicSpline = true,  bool endPause=false,  bool endInZeroSpeed=false,bool lock=true);
+	bool addPositionCue(float speed, ofVec3f target, ofVec3f dir, bool cubicSpline = true,  bool endPause=false,  bool endInZeroSpeed=false,bool lock=true);
 	int timelineCuesLeft(bool lock=true);
-	bool setGravityTarget(ofxVec3f target, ofxVec3f dir, float force = 1.0, float maxSpeed = 0,  ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
-	bool isLegalTarget(ofxVec3f target, ofxVec3f dir, ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
+	bool setGravityTarget(ofVec3f target, ofVec3f dir, float force = 1.0, float maxSpeed = 0,  ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
+	bool isLegalTarget(ofVec3f target, ofVec3f dir, ofxIndustrialRobotDefines::HandVariant variant =  ofxIndustrialRobotDefines::Auto, bool lock=true);
     
     void setInput(Input input);
 
-	ofxVec3f getCurrentTarget(bool lock=true);
-	ofxVec3f getCurrentDir(bool lock=true);
+	ofVec3f getCurrentTarget(bool lock=true);
+	ofVec3f getCurrentDir(bool lock=true);
 	
-	ofxVec3f getCurrentGravityTarget(bool lock=true);
-	ofxVec3f getCurrentGravityDir(bool lock=true);
+	ofVec3f getCurrentGravityTarget(bool lock=true);
+	ofVec3f getCurrentGravityDir(bool lock=true);
 	
 	float getHandLength(bool lock=true);
 	float getHandHeight(bool lock=true);
 
-	ofxVec3f getDistanceToPointv(ofxVec3f p,bool lock=true);
-	float getDistanceToPointf(ofxVec3f p,bool lock=true);
+	ofVec3f getDistanceToPointv(ofVec3f p,bool lock=true);
+	float getDistanceToPointf(ofVec3f p,bool lock=true);
 
-	ofxVec3f getDistanceToGravityTargetv(bool lock=true);
+	ofVec3f getDistanceToGravityTargetv(bool lock=true);
 	float getDistanceToGravityTargetf(bool lock=true);
 
 	float getVariant(bool lock=true);
