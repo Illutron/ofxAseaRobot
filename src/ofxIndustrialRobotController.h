@@ -13,9 +13,7 @@
 
 class ofxIndustrialRobotController {
 
-	
 public:
-
 
 	ofxIndustrialRobotController(ofxIndustrialRobotCoreData * _data, ofxIndustrialRobotArmHelper * _helper, ofxIndustrialRobotTimeline * _timeline, ofxIndustrialRobotPlotter * _plotter);
 	

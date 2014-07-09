@@ -3,7 +3,7 @@
 
 
 ofxIndustrialRobotSerial::ofxIndustrialRobotSerial(){
-	connected = serial.setup("/dev/tty.usbserial-A7007bv1", 115200);
+	connected = serial.setup("/dev/tty.usbserial-A6008dQf", 115200);
 	
 	for(int i=0;i<5;i++){
 		inValues[i] = 0;

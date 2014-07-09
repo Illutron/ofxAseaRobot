@@ -1,4 +1,3 @@
-
 #include "ofxIndustrialRobotController.h"
 #include "ofxIndustrialRobot.h"
 
@@ -32,7 +31,6 @@ ofxIndustrialRobotController::ofxIndustrialRobotController(ofxIndustrialRobotCor
 	changingVariant2 = false;
 	
 	inZoneSafetyMode = false;
-	
 }
 
 void ofxIndustrialRobotController::setInput(int _input){
@@ -401,7 +399,7 @@ void ofxIndustrialRobotController::step(float framerate){
 			if(gravityVDir.length() > 0.005){
 				gravityVDir.limit(0.005);
 			}
-		//	cout<<gravityVDir.length() <<endl;
+            //cout<<gravityVDir.length() <<endl;
 			
 			targetPosition += gravityV*(125.0/framerate);
 			targetDir += gravityVDir*(125.0/framerate);
