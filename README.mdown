@@ -3,7 +3,8 @@
 ## Installation
 Put the repostory in your addons folder under openFrameworks so it looks like this: `/path_to_of/addons/ofxAseaRobot/`. The simpleAseaExample shows how to interface the robot.
 
-## Addon requirements
+## Requirements
+of 0.9.0
 
 External addons:
 - ofxMSAInteractiveObject
