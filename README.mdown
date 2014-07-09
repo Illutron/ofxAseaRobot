@@ -1,14 +1,20 @@
 # ofxAseaRobot 
 
 ## Installation
-Put the repostory in your addons folder under openFrameworks so it looks like this: `/path_to_of/addons/ofxAseaRobot/`. The simpleExample shows how to interface the robot
+Put the repostory in your addons folder under openFrameworks so it looks like this: `/path_to_of/addons/ofxAseaRobot/`. The simpleAseaExample shows how to interface the robot.
 
 ## Addon requirements
+
+External addons:
+- ofxMSAInteractiveObject
+- ofxMSAInterpolator
+- ofxMSACore
+
+Core addons:
 - ofx3DModelLoader
 - ofxXmlSettings
-- ofxVectorMath
-- ofxThread
-- ofxMSAInteravtiveObject (included in rep)
-- ofxMSASplin (included in rep)
-- ofx3DUtils (included in rep)
 
+
+---
+Developed by Jonas Jongejan 2011
+Updated by Johan Bichel Lindegaard 2014
